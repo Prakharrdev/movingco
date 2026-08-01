@@ -1,33 +1,40 @@
 ---
-import GlassCard from '../ui/GlassCard.astro';
 ---
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 w-full">
-  <GlassCard hoverLift class="p-4 sm:p-6 flex flex-col items-center gap-3 text-center !rounded-[24px] animate-cascade opacity-0 [animation-delay:500ms]">
-    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-primary)]/20 text-[var(--color-accent)] flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+<div class="flex items-start gap-4 md:gap-8 mt-10 w-full">
+  
+  <div class="flex flex-col items-center text-center max-w-[80px]">
+    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
     </div>
-    <span class="text-white font-semibold text-sm sm:text-base">Licensed</span>
-  </GlassCard>
+    <span class="text-white text-xs md:text-sm font-medium leading-tight">Licensed<br/>& Insured</span>
+  </div>
 
-  <GlassCard hoverLift class="p-4 sm:p-6 flex flex-col items-center gap-3 text-center !rounded-[24px] animate-cascade opacity-0 [animation-delay:600ms]">
-    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-primary)]/20 text-[var(--color-accent)] flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    </div>
-    <span class="text-white font-semibold text-sm sm:text-base">On-Time</span>
-  </GlassCard>
+  <div class="w-[1px] h-12 bg-white/20 mt-2 hidden sm:block"></div>
 
-  <GlassCard hoverLift class="p-4 sm:p-6 flex flex-col items-center gap-3 text-center !rounded-[24px] animate-cascade opacity-0 [animation-delay:700ms]">
-    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-primary)]/20 text-[var(--color-accent)] flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  <div class="flex flex-col items-center text-center max-w-[80px]">
+    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     </div>
-    <span class="text-white font-semibold text-sm sm:text-base">Professionals</span>
-  </GlassCard>
+    <span class="text-white text-xs md:text-sm font-medium leading-tight">Professional<br/>Movers</span>
+  </div>
 
-  <GlassCard hoverLift class="p-4 sm:p-6 flex flex-col items-center gap-3 text-center !rounded-[24px] animate-cascade opacity-0 [animation-delay:800ms]">
-    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-primary)]/20 text-[var(--color-accent)] flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+  <div class="w-[1px] h-12 bg-white/20 mt-2 hidden sm:block"></div>
+
+  <div class="flex flex-col items-center text-center max-w-[80px]">
+    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
     </div>
-    <span class="text-white font-semibold text-sm sm:text-base">Careful</span>
-  </GlassCard>
+    <span class="text-white text-xs md:text-sm font-medium leading-tight">On-Time<br/>Service</span>
+  </div>
+
+  <div class="w-[1px] h-12 bg-white/20 mt-2 hidden sm:block"></div>
+
+  <div class="flex flex-col items-center text-center max-w-[80px]">
+    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+    </div>
+    <span class="text-white text-xs md:text-sm font-medium leading-tight">Careful &<br/>Reliable</span>
+  </div>
+
 </div>
