@@ -1,0 +1,12 @@
+---
+interface Props {
+  class?: string;
+  hoverLift?: boolean;
+}
+
+const { class: className = '', hoverLift = false } = Astro.props;
+---
+
+<div class={`rounded-[28px] bg-[rgba(7,28,53,0.88)] backdrop-blur-xl border border-[var(--color-border-glass)] shadow-[var(--shadow-premium)] transition-all duration-300 ${hoverLift ? 'hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.45)]' : ''} ${className}`}>
+  <slot />
+</div>

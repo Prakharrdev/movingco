@@ -1,0 +1,43 @@
+---
+import GlassCard from '../ui/GlassCard.astro';
+import Input from '../ui/Input.astro';
+import Button from '../ui/Button.astro';
+---
+
+<GlassCard class="p-8 md:p-10 w-full max-w-md mx-auto xl:mx-0 animate-slide-left opacity-0 [animation-delay:500ms]">
+  <h3 class="text-2xl font-bold text-white mb-6">Get Free Estimate</h3>
+  
+  <form class="space-y-4" onsubmit="event.preventDefault();">
+    <div class="grid grid-cols-2 gap-4">
+      <Input type="text" placeholder="First Name" />
+      <Input type="text" placeholder="Last Name" />
+    </div>
+    <Input type="tel" placeholder="Phone Number" />
+    <Input type="email" placeholder="Email Address" />
+    
+    <div class="grid grid-cols-2 gap-4">
+      <Input type="text" placeholder="Moving From (Zip)" />
+      <Input type="text" placeholder="Moving To (Zip)" />
+    </div>
+    
+    <div class="relative">
+      <select class="w-full h-[56px] px-4 rounded-xl bg-white/10 border border-white/20 text-white text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all duration-300 backdrop-blur-sm appearance-none">
+        <option value="" disabled selected class="text-gray-900">Select Move Size</option>
+        <option value="studio" class="text-gray-900">Studio</option>
+        <option value="1bed" class="text-gray-900">1 Bedroom</option>
+        <option value="2bed" class="text-gray-900">2-3 Bedrooms</option>
+        <option value="4bed+" class="text-gray-900">4+ Bedrooms</option>
+        <option value="commercial" class="text-gray-900">Commercial / Office</option>
+      </select>
+      <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-white/50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </div>
+    
+    <textarea placeholder="Additional Details (Optional)" class="w-full h-[120px] p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all duration-300 backdrop-blur-sm resize-none"></textarea>
+    
+    <Button type="submit" variant="primary" class="w-full !mt-6">
+      Get My Free Quote
+    </Button>
+  </form>
+</GlassCard>

@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #2E7DEB;
+  --color-dark-navy: #071C35;
+  --color-secondary-navy: #102A4C;
+  --color-accent: #4FA4FF;
+  --color-light-gray: #F7F9FC;
+  --color-border-glass: rgba(255, 255, 255, 0.12);
+  --color-text-secondary: rgba(255, 255, 255, 0.75);
+  
+  --shadow-premium: 0 25px 80px rgba(0, 0, 0, 0.35);
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --animate-fade-down: fade-down 0.8s ease-out forwards;
+  --animate-fade-up: fade-up 0.8s ease-out forwards;
+  --animate-slide-up: slide-up 0.8s ease-out forwards;
+  --animate-slide-left: slide-left 0.8s ease-out forwards;
+  --animate-cascade: cascade 0.6s ease-out forwards;
+
+  @keyframes fade-down {
+    from { opacity: 0; transform: translateY(-20px) translateX(-50%); }
+    to { opacity: 1; transform: translateY(0) translateX(-50%); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-left {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes cascade {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-light-gray text-dark-navy antialiased;
+  }
+}
