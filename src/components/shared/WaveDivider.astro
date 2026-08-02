@@ -1,0 +1,82 @@
+---
+interface Props {
+  /** The fill color of the wave shape (should match the NEXT section's bg) */
+  fill?: string;
+  /** 'top' renders a wave entering from the top, 'bottom' from the bottom */
+  position?: 'top' | 'bottom';
+  class?: string;
+}
+
+const {
+  fill = 'var(--color-light-gray)',
+  position = 'bottom',
+  class: className = '',
+} = Astro.props;
+
+/* User-supplied wave path from waves.svg (viewBox 0 0 1200 120).
+   This is a single, gentle wave — non-dramatic and uniform. */
+const wavePath =
+  'M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8A600.21,600.21,0,0,0,321.39,56.44Z';
+---
+
+<div
+  class:list={[
+    'wave-divider',
+    position === 'top' ? 'wave-divider--top' : 'wave-divider--bottom',
+    className,
+  ]}
+>
+  <svg
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 120"
+    preserveAspectRatio="none"
+    class="wave-divider__svg"
+  >
+    <path d={wavePath} fill={fill}></path>
+  </svg>
+</div>
+
+<style>
+  .wave-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  /* Bottom: sits at the bottom edge of the parent section */
+  .wave-divider--bottom {
+    bottom: 0;
+    transform: translateY(1px); /* prevent subpixel gaps */
+  }
+
+  /* Top: sits at the top edge, wave is flipped vertically */
+  .wave-divider--top {
+    top: 0;
+    transform: rotate(180deg) translateY(1px);
+  }
+
+  .wave-divider__svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px); /* prevent hairline gap on right edge */
+    /* Uniform, responsive height across all wave dividers */
+    height: 48px;
+  }
+
+  @media (min-width: 640px) {
+    .wave-divider__svg {
+      height: 72px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .wave-divider__svg {
+      height: 80px;
+    }
+  }
+</style>

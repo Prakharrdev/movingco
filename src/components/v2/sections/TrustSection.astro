@@ -1,4 +1,6 @@
 ---
+import WaveDivider from '../../shared/WaveDivider.astro';
+
 const communities = [
   "Traverse City", "Kingsley", "Kalkaska", "Cadillac", "Charlevoix", "Petoskey", 
   "Gaylord", "Manistee", "Elk Rapids", "Frankfort",
@@ -8,12 +10,8 @@ const communities = [
 ---
 
 <section class="relative w-full bg-[#F4F8FE] pt-[120px] pb-0 overflow-hidden" id="trust-section">
-  <!-- Subtle wave overlay at top to blend with above section -->
-  <div class="absolute top-0 left-0 w-full overflow-hidden pointer-events-none transform rotate-180">
-    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto min-h-[40px] max-h-[120px]" preserveAspectRatio="none">
-      <path d="M0,0 C320,80 420,0 720,40 C1020,80 1120,0 1440,40 L1440,120 L0,120 Z" fill="white"/>
-    </svg>
-  </div>
+  <!-- Service Area top wave — light-gray flowing into the Trust section bg -->
+  <WaveDivider fill="var(--color-light-gray)" position="top" />
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
     

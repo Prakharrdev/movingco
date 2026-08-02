@@ -2,7 +2,7 @@
 import HeroBackground from './HeroBackground.astro';
 import HeroContent from './HeroContent.astro';
 import QuoteCard from './QuoteCard.astro';
-import WaveDivider from './WaveDivider.astro';
+import WaveDivider from '../shared/WaveDivider.astro';
 ---
 
 <section class="relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[var(--color-dark-navy)]">
@@ -25,5 +25,5 @@ import WaveDivider from './WaveDivider.astro';
     
   </div>
 
-  <WaveDivider />
+  <WaveDivider fill="var(--color-about-bg)" position="bottom" />
 </section>
