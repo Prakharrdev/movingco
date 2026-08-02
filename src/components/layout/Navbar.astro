@@ -9,8 +9,15 @@ const serviceLinks = [
   { href: '/services/specialty-moving-services', label: 'Specialty Moving Services' },
 ];
 
+const locationLinks = [
+  { href: '/service-area/traverse-city-moving-services', label: 'Traverse City Moving' },
+  { href: '/service-area/kingsley-moving-services', label: 'Kingsley Moving' },
+  { href: '/service-area/kalkaska-moving-services', label: 'Kalkaska Moving' },
+];
+
 const pathname = Astro.url.pathname;
 const isServicesPage = pathname.startsWith('/services');
+const isLocationPage = pathname.startsWith('/service-area');
 ---
 
 <!-- ===== Mobile Topbar ===== -->
@@ -50,9 +57,12 @@ const isServicesPage = pathname.startsWith('/services');
     {serviceLinks.map((s) => (
       <li><a href={s.href} class:list={['m-nav-btn', { active: pathname === s.href }]}>{s.label}</a></li>
     ))}
-    <li><a href="#" class="m-nav-btn">Locations</a></li>
-    <li><a href="#" class="m-nav-btn">Testimonials</a></li>
-    <li><a href="#" class="m-nav-btn">About Us</a></li>
+    <li><span class="drawer-section">Service Areas</span></li>
+    {locationLinks.map((l) => (
+      <li><a href={l.href} class:list={['m-nav-btn', { active: pathname === l.href }]}>{l.label}</a></li>
+    ))}
+    <li><a href="/testimonials" class:list={['m-nav-btn', { active: pathname === '/testimonials' }]}>Testimonials</a></li>
+    <li><a href="/about-us" class:list={['m-nav-btn', { active: pathname === '/about-us' }]}>About Us</a></li>
   </ul>
   <div class="drawer-phone">
     <a href="tel:2313429505" class="drawer-phone-link">
@@ -93,9 +103,22 @@ const isServicesPage = pathname.startsWith('/services');
             </div>
           </div>
         </div>
-        <a href="#" class="nav-btn">Locations</a>
-        <a href="#" class="nav-btn">Testimonials</a>
-        <a href="#" class="nav-btn">About Us</a>
+        <!-- Locations Dropdown -->
+        <div class="relative group">
+          <a href={locationLinks[0].href} class:list={['nav-btn', { active: isLocationPage }]}>
+            Locations
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-panel">
+            <div class="dropdown-inner">
+              {locationLinks.map((l) => (
+                <a href={l.href} class:list={['dropdown-link', { active: pathname === l.href }]}>{l.label}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+        <a href="/testimonials" class:list={['nav-btn', { active: pathname === '/testimonials' }]}>Testimonials</a>
+        <a href="/about-us" class:list={['nav-btn', { active: pathname === '/about-us' }]}>About Us</a>
       </li>
       <li class="nav-phone">
         <a href="tel:2313429505" class="nav-phone-link">
