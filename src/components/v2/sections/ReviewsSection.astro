@@ -5,18 +5,7 @@ import ReviewCarousel from './ReviewCarousel.astro';
 const flatWavePath = "M0,64L80,58.7C160,53,320,43,480,48C640,53,800,75,960,74.7C1120,75,1280,53,1360,42.7L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z";
 ---
 
-<section class="relative py-32 overflow-hidden">
-  <!-- Background Image with Parallax-like feel -->
-  <div class="absolute inset-0 z-0">
-    <img 
-      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" 
-      alt="Moving team" 
-      class="w-full h-full object-cover object-center"
-    />
-  </div>
-
-  <!-- Glass Overlay -->
-  <div class="absolute inset-0 z-10 bg-[rgba(0,24,46,.72)] backdrop-blur-[2px]"></div>
+<section class="relative py-32 overflow-hidden bg-[var(--color-dark-navy)]">
 
   <!-- Top Flat Wave Divider -->
   <div class="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-20 rotate-180">
