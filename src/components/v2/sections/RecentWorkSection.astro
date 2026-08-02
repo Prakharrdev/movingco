@@ -1,0 +1,108 @@
+---
+import RecentWorkCard from './RecentWorkCard.astro';
+
+const recentWorks = [
+  {
+    title: "Local Home Move",
+    location: "Traverse City, MI",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`
+  },
+  {
+    title: "Long-Distance Move",
+    location: "Kingsley, MI",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h2"/><path d="M14 17h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>`
+  },
+  {
+    title: "Apartment Move",
+    location: "Traverse City, MI",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>`
+  },
+  {
+    title: "Packing Service",
+    location: "Kalkaska, MI",
+    image: "https://images.unsplash.com/photo-1550502120-410a8b1d7d0a?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`
+  },
+  {
+    title: "Loading & Unloading",
+    location: "Traverse City, MI",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8ed716d40a?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16v-4a4 4 0 1 0-8 0v4"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M8 12h.01"/><path d="M3 16h18"/><path d="M5 20v-4"/><path d="M19 20v-4"/><path d="M8 16v4"/><path d="M16 16v4"/></svg>`
+  },
+  {
+    title: "Storage & Declutter",
+    location: "Traverse City, MI",
+    image: "https://images.unsplash.com/photo-1621252178229-4e022f378d38?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`
+  },
+  {
+    title: "Senior Move",
+    location: "Traverse City, MI",
+    image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+  },
+  {
+    title: "Arts & Antiques Move",
+    location: "Petoskey, MI",
+    image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=800&q=80",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+  }
+];
+---
+
+<section class="py-24 bg-light-gray">
+  <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16 flex flex-col items-center">
+      <!-- Mountain Logo Placeholder -->
+      <div class="mb-4 text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="24" viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 20L16 6L24 14L36 4L44 20"/>
+          <path d="M16 6L20 10"/>
+        </svg>
+      </div>
+
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <div class="h-[1px] w-12 bg-dark-navy/20"></div>
+        <span class="text-dark-navy font-bold text-[13px] tracking-[0.15em] uppercase">Our Recent Work</span>
+        <div class="h-[1px] w-12 bg-dark-navy/20"></div>
+      </div>
+      
+      <h2 class="text-[36px] md:text-[48px] font-bold text-dark-navy leading-tight mb-4">
+        Built for <span class="text-primary">Every Move.</span> Backed by Experience.
+      </h2>
+      
+      <p class="text-[18px] text-gray-600 font-medium max-w-2xl mx-auto">
+        Take a look at some of our recent moves across Northern Michigan.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {recentWorks.map(work => (
+        <RecentWorkCard 
+          title={work.title}
+          location={work.location}
+          image={work.image}
+          icon={work.icon}
+        />
+      ))}
+    </div>
+
+    <!-- CTA Button -->
+    <div class="flex justify-center">
+      <a 
+        href="/gallery" 
+        class="inline-flex items-center justify-center px-8 py-3.5 bg-white border-2 border-primary text-primary font-bold text-[14px] uppercase tracking-wider rounded-[10px] transition-colors duration-300 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+      >
+        View Full Gallery 
+        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+    
+  </div>
+</section>
