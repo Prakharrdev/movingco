@@ -23,7 +23,24 @@
 
     <!-- Links -->
     <div class="hidden lg:flex items-center gap-6 xl:gap-8 text-[15px] font-bold text-white pt-2 lg:pr-48 xl:pr-64">
-      <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm">Moving Services</a>
+      <!-- Moving Services Dropdown -->
+      <div class="relative group">
+        <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm inline-flex items-center gap-1.5">
+          Moving Services
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div class="bg-[var(--color-dark-navy)] border border-white/10 rounded-md shadow-2xl py-2 w-64">
+            <a href="/services/arts-antiques" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Arts & Antiques</a>
+            <a href="/services/local-distance-moving" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Local & Distance Moving</a>
+            <a href="/services/packing-unpacking" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Packing & Unpacking</a>
+            <a href="/services/storage-declutter" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Storage & Declutter</a>
+            <a href="/services/apartment-condo-moving" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Apartment & Condo Moving</a>
+            <a href="/services/senior-moving" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Senior Moving</a>
+            <a href="/services/specialty-moving-services" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Specialty Moving Services</a>
+          </div>
+        </div>
+      </div>
       <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm">Locations</a>
       <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm">Testimonials</a>
       <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm">About Us</a>

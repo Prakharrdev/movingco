@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Navbar from '../layout/Navbar.astro';
+import Footer from '../layout/Footer.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<Base title={title}>
+  <Navbar />
+  <main class="w-full min-h-[70vh] bg-[var(--color-light-gray)] flex items-center justify-center">
+    <div class="text-center px-6 py-32">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-[var(--color-dark-navy)] mb-4">{title}</h1>
+      {subtitle && <p class="text-lg text-[var(--color-dark-navy)]/70">{subtitle}</p>}
+    </div>
+  </main>
+  <Footer />
+</Base>
