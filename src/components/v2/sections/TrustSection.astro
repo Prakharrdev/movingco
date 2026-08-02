@@ -125,9 +125,9 @@ const communities = [
     </div>
   </div>
 
-  <!-- Forest Silhouette -->
-  <div class="w-full mt-24 pointer-events-none relative z-0">
-    <img src="/images/pine-forest-silhouette.png" alt="Northern Michigan Pine Forest" class="w-full h-[240px] md:h-[300px] object-cover" style="object-position: 50% 58%;" />
+  <!-- Forest edge blends into the section instead of ending as a hard image strip. -->
+  <div class="forest-edge w-full mt-24 h-[240px] md:h-[300px] pointer-events-none relative z-0 overflow-hidden">
+    <img src="/images/pine-forest-silhouette.png" alt="Northern Michigan Pine Forest" class="block w-full h-full object-cover" style="object-position: 50% 58%;" />
   </div>
 </section>
 
@@ -147,6 +147,11 @@ const communities = [
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+
+  .forest-edge {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 34%, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 34%, black 100%);
   }
 </style>
 
