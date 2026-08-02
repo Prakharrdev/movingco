@@ -1,53 +1,419 @@
 ---
+const serviceLinks = [
+  { href: '/services/arts-antiques', label: 'Arts & Antiques' },
+  { href: '/services/local-distance-moving', label: 'Local & Distance Moving' },
+  { href: '/services/packing-unpacking', label: 'Packing & Unpacking' },
+  { href: '/services/storage-declutter', label: 'Storage & Declutter' },
+  { href: '/services/apartment-condo-moving', label: 'Apartment & Condo Moving' },
+  { href: '/services/senior-moving', label: 'Senior Moving' },
+  { href: '/services/specialty-moving-services', label: 'Specialty Moving Services' },
+];
+
+const pathname = Astro.url.pathname;
+const isServicesPage = pathname.startsWith('/services');
 ---
 
-<nav class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-  <!-- Phone block pinned to top right of viewport -->
-  <div class="absolute top-0 right-0 pointer-events-auto hidden md:block">
-    <a href="tel:2313429505" class="bg-[var(--color-primary)] text-white px-8 py-4 lg:py-6 font-bold text-[15px] lg:text-[16px] flex items-center gap-2 hover:bg-blue-600 transition-colors shadow-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<!-- ===== Mobile Topbar ===== -->
+<div class="mobile-topbar" id="mobileTopbar">
+  <a href="tel:2313429505" class="topbar-phone-icon" aria-label="Call Us">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+  <a href="/" class="mobile-topbar-logo-link" aria-label="Ascension Moving">
+    <span class="mobile-topbar-logo">
+      <span class="text-[15px] font-extrabold tracking-tight text-white">ASCENSION</span>
+      <span class="block text-[8px] tracking-[0.2em] text-[var(--color-primary)] uppercase font-black leading-none">Moving Company</span>
+    </span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <svg id="hamIcon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+</div>
+
+<!-- ===== Overlay ===== -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== Mobile Drawer ===== -->
+<div class="mobile-drawer" id="drawer">
+  <div class="drawer-header">
+    <a href="/" class="drawer-logo-link">
+      <span class="text-white font-extrabold tracking-tight">
+        ASCENSION
+        <span class="block text-[9px] tracking-[0.2em] text-white/80 uppercase font-black leading-none mt-0.5">Moving Company</span>
+      </span>
+    </a>
+    <button class="close-btn" id="closeBtn" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <ul class="drawer-nav">
+    <li><span class="drawer-section">Moving Services</span></li>
+    {serviceLinks.map((s) => (
+      <li><a href={s.href} class:list={['m-nav-btn', { active: pathname === s.href }]}>{s.label}</a></li>
+    ))}
+    <li><a href="#" class="m-nav-btn">Locations</a></li>
+    <li><a href="#" class="m-nav-btn">Testimonials</a></li>
+    <li><a href="#" class="m-nav-btn">About Us</a></li>
+  </ul>
+  <div class="drawer-phone">
+    <a href="tel:2313429505" class="drawer-phone-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       (231) 342-9505
     </a>
   </div>
+</div>
 
-  <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex items-start justify-between pt-6 pointer-events-auto">
-    <!-- Logo -->
-    <div class="flex flex-col text-white font-bold tracking-tight">
-      <span class="text-2xl md:text-3xl flex items-center gap-2 mb-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-        ASCENSION
-      </span>
-      <span class="text-[10px] md:text-[12px] tracking-[0.2em] text-[var(--color-primary)] uppercase leading-none mb-1 font-black">Moving Company</span>
-      <span class="text-[8px] md:text-[9px] tracking-[0.1em] text-white/90">YOUR MOVE, YOUR WAY!</span>
-    </div>
-
-    <!-- Links -->
-    <div class="hidden lg:flex items-center gap-6 xl:gap-8 text-[15px] font-bold text-white pt-2 lg:pr-48 xl:pr-64">
-      <!-- Moving Services Dropdown -->
-      <div class="relative group">
-        <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm inline-flex items-center gap-1.5">
-          Moving Services
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+<!-- ===== Main Nav (Desktop) ===== -->
+<nav class="main-nav" id="mainNav" data-solid={pathname !== '/' ? 'true' : 'false'}>
+  <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 h-full">
+    <ul>
+      <li class="nav-logo">
+        <a href="/" class="nav-logo-link" aria-label="Ascension Moving">
+          <span class="flex flex-col font-bold tracking-tight text-white">
+            <span class="text-2xl flex items-center gap-2 mb-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+              ASCENSION
+            </span>
+            <span class="text-[9px] tracking-[0.2em] text-[var(--color-primary)] uppercase leading-none mb-0.5 font-black">Moving Company</span>
+            <span class="text-[7px] tracking-[0.1em] text-white/90">YOUR MOVE, YOUR WAY!</span>
+          </span>
         </a>
-        <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-          <div class="bg-[var(--color-dark-navy)] border border-white/10 rounded-md shadow-2xl py-2 w-64">
-            <a href="/services/arts-antiques" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Arts & Antiques</a>
-            <a href="/services/local-distance-moving" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Local & Distance Moving</a>
-            <a href="/services/packing-unpacking" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Packing & Unpacking</a>
-            <a href="/services/storage-declutter" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Storage & Declutter</a>
-            <a href="/services/apartment-condo-moving" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Apartment & Condo Moving</a>
-            <a href="/services/senior-moving" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Senior Moving</a>
-            <a href="/services/specialty-moving-services" class="block px-5 py-2.5 text-white/90 hover:text-white hover:bg-[var(--color-primary)]/20 transition-colors text-[14px] font-semibold">Specialty Moving Services</a>
+      </li>
+      <li class="nav-links-group">
+        <!-- Moving Services Dropdown -->
+        <div class="relative group">
+          <a href="/services/arts-antiques" class:list={['nav-btn', { active: isServicesPage }]}>
+            Moving Services
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-panel">
+            <div class="dropdown-inner">
+              {serviceLinks.map((s) => (
+                <a href={s.href} class:list={['dropdown-link', { active: pathname === s.href }]}>{s.label}</a>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm">Locations</a>
-      <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm">Testimonials</a>
-      <a href="#" class="hover:text-[var(--color-primary)] transition-colors drop-shadow-sm">About Us</a>
-    </div>
-    
-    <button class="lg:hidden text-white p-2 focus:outline-none mr-24">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-    </button>
+        <a href="#" class="nav-btn">Locations</a>
+        <a href="#" class="nav-btn">Testimonials</a>
+        <a href="#" class="nav-btn">About Us</a>
+      </li>
+      <li class="nav-phone">
+        <a href="tel:2313429505" class="nav-phone-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (231) 342-9505
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const hamIcon = document.getElementById('hamIcon');
+  const drawer = document.getElementById('drawer');
+  const overlay = document.getElementById('overlay');
+  const closeBtn = document.getElementById('closeBtn');
+  const mainNav = document.getElementById('mainNav');
+  const mobileBar = document.getElementById('mobileTopbar');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+    hamIcon.innerHTML = '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('active');
+    hamIcon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+
+  drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeDrawer));
+
+  function toggleNavScroll() {
+    const scrolled = window.scrollY > 50;
+    mainNav.classList.toggle('navbar-scrolled', scrolled || mainNav.dataset.solid === 'true');
+    mobileBar.classList.toggle('navbar-scrolled', scrolled || mainNav.dataset.solid === 'true');
+  }
+
+  window.addEventListener('scroll', toggleNavScroll, { passive: true });
+  toggleNavScroll();
+</script>
+
+<style>
+  .mobile-topbar {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1100;
+    height: 56px;
+    padding: 0 12px;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(7, 28, 53, 0.85);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease;
+  }
+
+  .mobile-topbar-logo-link {
+    display: block;
+    order: 2;
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .mobile-topbar-logo { display: inline-block; }
+
+  .topbar-phone-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    color: #fff !important;
+    text-decoration: none;
+    order: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .hamburger {
+    background: none; border: none; cursor: pointer; padding: 4px;
+    display: flex; align-items: center; order: 1;
+    color: #fff;
+  }
+
+  .mobile-topbar.navbar-scrolled {
+    background: rgba(7, 28, 53, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0, 0, 0, 0.45); z-index: 1199;
+  }
+  .overlay.active { display: block; }
+
+  .mobile-drawer {
+    position: fixed;
+    top: 0; left: -320px;
+    width: 300px; height: 100dvh;
+    background: var(--color-dark-navy);
+    z-index: 1200;
+    display: flex; flex-direction: column;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .mobile-drawer::-webkit-scrollbar { display: none; }
+  .mobile-drawer.open { left: 0; }
+
+  .drawer-header {
+    background: var(--color-primary);
+    padding: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .drawer-logo-link { display: flex; align-items: center; text-decoration: none; }
+  .close-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; color: #fff; }
+
+  .drawer-nav { list-style: none; margin: 0; padding: 0; }
+  .drawer-nav > li { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .drawer-section {
+    display: block;
+    padding: 18px 16px 8px;
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  .drawer-nav > li > .m-nav-btn {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    background: none; border: none;
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 1.05rem; font-weight: 700;
+    padding: 14px 16px;
+    cursor: pointer; text-align: left;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .drawer-nav > li > .m-nav-btn:hover { background: rgba(255, 255, 255, 0.08); }
+  .drawer-nav > li > .m-nav-btn.active { color: var(--color-accent); }
+
+  .drawer-phone {
+    margin-top: auto; padding: 16px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+  .drawer-phone-link {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 1.2rem; font-weight: 800;
+    padding: 14px; border-radius: 10px;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: background 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  .drawer-phone-link:hover { background: var(--color-accent); }
+
+  .main-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1050;
+    height: 80px;
+    background: rgba(7, 28, 53, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+  }
+
+  .main-nav.navbar-scrolled {
+    background: rgba(7, 28, 53, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 72px;
+  }
+
+  .main-nav > div > ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    height: 100%;
+  }
+
+  .main-nav > div > ul > li { position: relative; }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo-link { display: block; text-decoration: none; transition: all 0.3s ease; }
+  .main-nav.navbar-scrolled .nav-logo-link { transform: scale(0.92); }
+
+  .nav-links-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+  }
+
+  .nav-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 80px;
+    padding: 0 16px;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 1.02rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: all 0.3s ease;
+  }
+  .main-nav.navbar-scrolled .nav-btn { height: 72px; }
+
+  .nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-primary);
+    box-shadow: 0 0 12px rgba(46, 125, 235, 0.6);
+    opacity: 0;
+    transition: width 0.25s ease, opacity 0.25s ease;
+  }
+
+  .nav-btn:hover::after,
+  .nav-btn.active::after {
+    width: 42px;
+    opacity: 1;
+  }
+
+  .nav-btn:hover,
+  .nav-btn.active {
+    color: var(--color-accent) !important;
+    text-shadow: 0 0 20px rgba(79, 164, 255, 0.4), 0 0 40px rgba(79, 164, 255, 0.2);
+  }
+
+  .nav-phone { display: flex; justify-content: flex-end; }
+  .nav-phone-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 80px;
+    padding: 0 20px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 1rem;
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+  }
+  .nav-phone-link:hover { background: var(--color-accent); }
+  .main-nav.navbar-scrolled .nav-phone-link { height: 72px; }
+
+  .dropdown-panel {
+    position: absolute;
+    left: 0; top: 100%;
+    padding-top: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.2s ease;
+    z-index: 1100;
+  }
+  .group:hover .dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dropdown-inner {
+    background: var(--color-dark-navy);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    padding: 8px 0;
+    width: 256px;
+  }
+  .dropdown-link {
+    display: block;
+    padding: 10px 20px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .dropdown-link:hover,
+  .dropdown-link.active { color: #fff; background: rgba(46, 125, 235, 0.25); }
+
+  @media (max-width: 1023px) {
+    .mobile-topbar { display: flex; }
+    .main-nav { display: none; }
+  }
+</style>
