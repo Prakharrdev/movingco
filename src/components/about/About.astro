@@ -1,9 +1,10 @@
 ---
 import AboutContent from './AboutContent.astro';
+import WaveDivider from '../hero/WaveDivider.astro';
 ---
 
-<section class="w-full bg-[var(--color-about-bg)] py-[120px]">
-  <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+<section class="relative w-full bg-[var(--color-about-bg)] py-[120px]">
+  <div class="max-w-[1440px] mx-auto px-4 md:px-8 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-[56px] items-start">
       
       <!-- Left: Image (Almost half section) -->
@@ -19,4 +20,6 @@ import AboutContent from './AboutContent.astro';
       
     </div>
   </div>
+  
+  <WaveDivider fill="var(--color-light-gray)" />
 </section>
