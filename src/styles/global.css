@@ -8,6 +8,9 @@
   --color-light-gray: #F7F9FC;
   --color-border-glass: rgba(255, 255, 255, 0.12);
   --color-text-secondary: rgba(255, 255, 255, 0.75);
+
+  --navbar-h: 80px;
+  --navbar-h-scrolled: 72px;
   
   --color-about-primary: #2F73D9;
   --color-about-navy: #183153;
