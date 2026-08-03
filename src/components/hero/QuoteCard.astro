@@ -4,24 +4,24 @@
 <div class="bg-[#0b1c31] p-8 md:p-10 w-full max-w-[480px] mx-auto xl:mx-0 rounded-2xl shadow-2xl relative">
   <h3 class="text-xl font-medium text-white mb-6 text-center">
     Get a <br/>
-    <span class="text-[32px] font-bold text-[var(--color-primary)] mt-1 inline-block leading-tight">Free Estimate</span>
+    <span class="text-2xl md:text-[32px] font-bold text-[var(--color-primary)] mt-1 inline-block leading-tight">Free Estimate</span>
   </h3>
   
   <form class="space-y-4" onsubmit="event.preventDefault();">
-    <div class="grid grid-cols-2 gap-4">
-      <input type="text" placeholder="First Name *" class="w-full h-[48px] px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
-      <input type="text" placeholder="Last Name *" class="w-full h-[48px] px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <input type="text" placeholder="First Name *" class="w-full py-3 px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
+      <input type="text" placeholder="Last Name *" class="w-full py-3 px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
     </div>
     
-    <div class="grid grid-cols-2 gap-4">
-      <input type="tel" placeholder="Phone Number *" class="w-full h-[48px] px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
-      <input type="email" placeholder="Email Address *" class="w-full h-[48px] px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <input type="tel" placeholder="Phone Number *" class="w-full py-3 px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
+      <input type="email" placeholder="Email Address *" class="w-full py-3 px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
     </div>
     
-    <input type="text" placeholder="Zip Code *" class="w-full h-[48px] px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
+    <input type="text" placeholder="Zip Code *" class="w-full py-3 px-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all" />
     
     <div class="relative">
-      <select class="w-full h-[48px] px-4 rounded bg-white text-gray-900 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all appearance-none">
+      <select class="w-full py-3 px-4 rounded bg-white text-gray-900 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all appearance-none">
         <option value="" disabled selected>Service Needed?</option>
         <option value="residential">Residential Moving</option>
         <option value="commercial">Commercial Moving</option>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="relative">
-      <select class="w-full h-[48px] px-4 rounded bg-white text-gray-900 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all appearance-none">
+      <select class="w-full py-3 px-4 rounded bg-white text-gray-900 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all appearance-none">
         <option value="" disabled selected>How Did You Hear About Us?</option>
         <option value="google">Google</option>
         <option value="friend">Friend / Referral</option>
@@ -42,9 +42,9 @@
       </div>
     </div>
     
-    <textarea placeholder="Tell us about your move..." class="w-full h-[100px] p-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all resize-none"></textarea>
+    <textarea placeholder="Tell us about your move..." class="w-full min-h-[100px] p-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all resize-none"></textarea>
     
-    <button type="submit" class="w-full h-[56px] bg-[var(--color-primary)] text-white font-bold text-[16px] uppercase tracking-wide rounded mt-2 hover:bg-blue-600 transition-colors">
+    <button type="submit" class="w-full py-4 bg-[var(--color-primary)] text-white font-bold text-[16px] uppercase tracking-wide rounded mt-2 hover:bg-blue-600 transition-colors">
       GET A QUOTE
     </button>
   </form>
