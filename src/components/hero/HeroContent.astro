@@ -4,6 +4,15 @@ import TrustGrid from './TrustGrid.astro';
 
 <div class="flex flex-col items-start text-left max-w-xl xl:max-w-2xl relative z-10 w-full">
   
+  <!-- Hero Logo -->
+  <a href="/" class="mb-7 md:mb-[38px] self-center md:self-center inline-block" aria-label="Ascension Moving">
+    <img
+      src="/images/Logo/logo.png"
+      alt="Ascension Moving Company"
+      class="hero-logo rounded-full object-cover"
+    />
+  </a>
+
   <h1 class="text-[clamp(2.25rem,5vw,4rem)] font-[800] text-white leading-[1.1] tracking-[-0.02em] mb-6">
     Professional Moving<br />Services in <br class="hidden sm:block" />
     <span class="text-[var(--color-primary)]">Northern Michigan</span>
@@ -17,3 +26,23 @@ import TrustGrid from './TrustGrid.astro';
   
   <TrustGrid />
 </div>
+
+<style>
+  .hero-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--color-overlay, rgba(7, 28, 53, 0.6));
+    background-size: cover;
+    background-position: center;
+    border: 3px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 1023px) {
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>
