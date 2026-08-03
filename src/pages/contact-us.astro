@@ -1,8 +1,19 @@
 ---
-import ServicePlaceholder from '../components/services/ServicePlaceholder.astro';
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhyChooseSection from '../components/v2/sections/WhyChooseSection.astro';
 ---
 
-<ServicePlaceholder
-  title="Contact Us"
-  subtitle="Get in touch with Ascension Moving Company."
-/>
+<Base title="Let's Talk | Ascension Moving Company">
+  <Navbar />
+  <main class="w-full bg-[#F8FBFF]">
+    <div class="w-full bg-[#0E2344] text-white py-20 text-center px-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Let's Talk</h1>
+      <p class="text-lg text-white/80 max-w-2xl mx-auto">Ready to plan your next move? Get in touch with our team today.</p>
+    </div>
+
+    <WhyChooseSection />
+  </main>
+  <Footer />
+</Base>

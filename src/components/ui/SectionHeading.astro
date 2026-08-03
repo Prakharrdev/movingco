@@ -1,0 +1,32 @@
+---
+export interface Props {
+  title: string;
+  highlightWord?: string;
+  subtitle?: string;
+}
+
+const { title, highlightWord, subtitle } = Astro.props;
+
+// Split title into parts to highlight
+const parts = highlightWord ? title.split(highlightWord) : [title];
+---
+
+<div class="text-center mb-16 flex flex-col items-center">
+  <h2 class="text-4xl md:text-5xl font-extrabold text-[#0E2344] tracking-tight mb-4">
+    {highlightWord ? (
+      <>
+        {parts[0]}<span class="text-[#3B82F6]">{highlightWord}</span>{parts[1] || ''}
+      </>
+    ) : (
+      title
+    )}
+  </h2>
+  
+  <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4A64A] to-transparent opacity-80 rounded-full mb-6"></div>
+  
+  {subtitle && (
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      {subtitle}
+    </p>
+  )}
+</div>

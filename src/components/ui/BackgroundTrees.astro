@@ -1,0 +1,24 @@
+---
+// BackgroundTrees.astro
+---
+
+<div class="absolute bottom-0 left-0 right-0 h-64 md:h-96 pointer-events-none z-0 overflow-hidden">
+  <!-- Mist Gradient (Bottom) -->
+  <div class="absolute inset-0 bg-gradient-to-t from-[#F8FBFF] via-[#F8FBFF]/80 to-transparent z-10"></div>
+  
+  <!-- Left Tree -->
+  <img 
+    src="/images/pine-forest-silhouette.png" 
+    alt="" 
+    aria-hidden="true"
+    class="absolute -bottom-8 -left-16 w-[400px] h-[300px] object-cover opacity-10 mix-blend-multiply filter blur-[1px]" 
+  />
+  
+  <!-- Right Tree (Flipped horizontally for variety) -->
+  <img 
+    src="/images/pine-forest-silhouette.png" 
+    alt="" 
+    aria-hidden="true"
+    class="absolute -bottom-8 -right-16 w-[400px] h-[300px] object-cover opacity-10 mix-blend-multiply filter blur-[1px] scale-x-[-1]" 
+  />
+</div>

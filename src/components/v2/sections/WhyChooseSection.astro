@@ -1,0 +1,64 @@
+---
+import SectionHeading from '../../ui/SectionHeading.astro';
+import IconCard from '../../ui/IconCard.astro';
+import ProcessTimeline from './ProcessTimeline.astro';
+import BackgroundTrees from '../../ui/BackgroundTrees.astro';
+
+const features = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>`,
+    title: "Licensed & Insured",
+    description: "Fully licensed and insured for your peace of mind."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+    title: "Experienced Team",
+    description: "Trained professionals who handle with care."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
+    title: "Transparent Pricing",
+    description: "No hidden fees. Honest, upfront quotes."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
+    title: "On-Time Guarantee",
+    description: "We value your time and always arrive on schedule."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"></path><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h2"></path><circle cx="7.5" cy="17.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>`,
+    title: "Stress-Free Moves",
+    description: "We make moving simple and easy."
+  }
+];
+---
+
+<section class="relative bg-[#F8FBFF] py-24 overflow-hidden border-t border-gray-100">
+  <div class="mx-auto max-w-7xl px-6 relative z-10">
+    <!-- Top Section -->
+    <SectionHeading 
+      title="Why Choose Ascension Moving?" 
+      highlightWord="Ascension Moving" 
+    />
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-32">
+      {features.map(feature => (
+        <IconCard title={feature.title} description={feature.description}>
+          <Fragment slot="icon" set:html={feature.icon} />
+        </IconCard>
+      ))}
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="text-center mb-16 flex flex-col items-center">
+      <h3 class="text-3xl font-extrabold text-[#0E2344] tracking-tight mb-4">
+        Our Simple Moving Process
+      </h3>
+      <div class="w-16 h-1 bg-gradient-to-r from-transparent via-[#D4A64A] to-transparent opacity-80 rounded-full"></div>
+    </div>
+    
+    <ProcessTimeline />
+  </div>
+
+  <BackgroundTrees />
+</section>

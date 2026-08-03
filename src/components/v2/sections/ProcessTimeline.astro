@@ -1,0 +1,41 @@
+---
+import ProcessStep from '../../ui/ProcessStep.astro';
+
+const steps = [
+  {
+    number: "1",
+    title: "Get a Free Quote",
+    description: "Share your move details with us.",
+  },
+  {
+    number: "2",
+    title: "We Plan Your Move",
+    description: "We create a plan tailored to your needs.",
+  },
+  {
+    number: "3",
+    title: "We Move With Care",
+    description: "Our team handles everything safely and professionally.",
+  },
+  {
+    number: "4",
+    title: "You Settle In",
+    description: "Relax while we take care of the heavy lifting.",
+  }
+];
+---
+
+<div class="relative mt-24 max-w-5xl mx-auto w-full">
+  <!-- Dotted Connecting Line (Desktop Only) -->
+  <div class="hidden md:block absolute top-[24px] left-[10%] right-[10%] h-[1px] border-t border-dashed border-[#3B82F6]/40 z-0"></div>
+  
+  <div class="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-4 relative z-10">
+    {steps.map((step) => (
+      <ProcessStep 
+        number={step.number} 
+        title={step.title} 
+        description={step.description} 
+      />
+    ))}
+  </div>
+</div>
