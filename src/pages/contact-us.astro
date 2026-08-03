@@ -1,19 +1,32 @@
 ---
 import Base from '../layouts/Base.astro';
 import Navbar from '../components/layout/Navbar.astro';
-import Footer from '../components/layout/Footer.astro';
+import ContactHero from '../components/contact/ContactHero.astro';
+import CtaSection from '../components/v2/sections/CtaSection.astro';
 import WhyChooseSection from '../components/v2/sections/WhyChooseSection.astro';
+import ProcessSection from '../components/v2/sections/ProcessSection.astro';
+import About from '../components/about/About.astro';
+import Services from '../components/services/Services.astro';
+import ReviewsSection from '../components/v2/sections/ReviewsSection.astro';
+import RecentWorkSection from '../components/v2/sections/RecentWorkSection.astro';
+import TrustSection from '../components/v2/sections/TrustSection.astro';
+import MapSection from '../components/v2/sections/MapSection.astro';
+import Footer from '../components/layout/Footer.astro';
 ---
 
-<Base title="Let's Talk | Ascension Moving Company">
+<Base title="Contact Us — Ascension Moving Company">
   <Navbar />
-  <main class="w-full bg-[#F8FBFF]">
-    <div class="w-full bg-[#0E2344] text-white py-20 text-center px-6">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Let's Talk</h1>
-      <p class="text-lg text-white/80 max-w-2xl mx-auto">Ready to plan your next move? Get in touch with our team today.</p>
-    </div>
-
+  <main class="w-full bg-[var(--color-light-gray)]">
+    <ContactHero />
+    <CtaSection />
     <WhyChooseSection />
+    <ProcessSection />
+    <About />
+    <Services />
+    <ReviewsSection />
+    <RecentWorkSection />
+    <TrustSection />
+    <MapSection />
+    <Footer />
   </main>
-  <Footer />
 </Base>

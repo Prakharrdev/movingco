@@ -1,0 +1,76 @@
+---
+const steps = [
+  { icon: 'clipboard', title: 'Free Quote', desc: 'Fill out our form or call us — we respond fast.' },
+  { icon: 'calendar', title: 'Schedule', desc: 'Pick a date that works best for you.' },
+  { icon: 'package', title: 'Packing & Loading', desc: 'Our crew handles everything with care.' },
+  { icon: 'truck', title: 'Safe Transport', desc: 'Your belongings arrive on time, damage-free.' },
+  { icon: 'home', title: 'Unpack & Settle In', desc: "We'll help you feel at home right away." },
+];
+---
+
+<section class="py-16 md:py-20 bg-[var(--color-light-gray)]">
+  <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Heading -->
+    <div class="text-center mb-14 md:mb-16">
+      <div class="w-10 h-[3px] rounded bg-[var(--color-primary)] mb-4 mx-auto"></div>
+      <h2 class="text-[28px] md:text-[32px] font-extrabold text-dark-navy leading-tight tracking-tight">
+        Our Simple <br class="md:hidden" />Moving Process
+      </h2>
+    </div>
+
+    <!-- Desktop Timeline (lg+) -->
+    <div class="hidden lg:block relative max-w-[1100px] mx-auto">
+      <!-- Connector line -->
+      <div class="absolute top-[36px] left-[8%] right-[8%] h-[2px] bg-gray-200"></div>
+
+      <div class="grid grid-cols-5 gap-4 relative">
+        {steps.map((step, i) => (
+          <div class="flex flex-col items-center text-center relative z-10">
+            <!-- Icon circle -->
+            <div class="w-[72px] h-[72px] rounded-full bg-white shadow-md flex items-center justify-center mb-5 relative border border-gray-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                {step.icon === 'clipboard' && <><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></>}
+                {step.icon === 'calendar' && <><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></>}
+                {step.icon === 'package' && <><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></>}
+                {step.icon === 'truck' && <><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></>}
+                {step.icon === 'home' && <><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></>}
+              </svg>
+              <!-- Step number -->
+              <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[var(--color-primary)] text-white text-[11px] font-bold flex items-center justify-center shadow">{i + 1}</span>
+            </div>
+            <h4 class="font-bold text-dark-navy text-[16px] mb-1.5">{step.title}</h4>
+            <p class="text-gray-500 text-[14px] leading-relaxed max-w-[180px]">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile/Tablet Timeline (<lg) -->
+    <div class="lg:hidden relative max-w-[420px] mx-auto">
+      <!-- Vertical connector line -->
+      <div class="absolute top-[36px] left-[35px] bottom-[36px] w-[2px] bg-gray-200"></div>
+
+      <div class="space-y-8 relative">
+        {steps.map((step, i) => (
+          <div class="flex items-start gap-5 relative z-10">
+            <!-- Icon circle -->
+            <div class="w-[72px] h-[72px] rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 relative border border-gray-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                {step.icon === 'clipboard' && <><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></>}
+                {step.icon === 'calendar' && <><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></>}
+                {step.icon === 'package' && <><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></>}
+                {step.icon === 'truck' && <><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></>}
+                {step.icon === 'home' && <><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></>}
+              </svg>
+              <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[var(--color-primary)] text-white text-[11px] font-bold flex items-center justify-center shadow">{i + 1}</span>
+            </div>
+            <div class="pt-4">
+              <h4 class="font-bold text-dark-navy text-[17px] mb-1">{step.title}</h4>
+              <p class="text-gray-500 text-[14px] leading-relaxed">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

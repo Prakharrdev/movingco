@@ -1,0 +1,200 @@
+---
+import ContactForm from './ContactForm.astro';
+---
+
+<section class="relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[var(--color-dark-navy)] pt-[120px] pb-16 lg:pb-24">
+  <!-- Background -->
+  <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50" style="background-image: url('/images/hero-section.png');"></div>
+    <div class="absolute inset-0 bg-[var(--color-dark-navy)]/85 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-dark-navy)] via-[var(--color-dark-navy)]/70 to-transparent"></div>
+  </div>
+
+  <!-- ===== Desktop Layout (lg+) ===== -->
+  <div class="hidden lg:block relative z-10 w-full max-w-[1400px] mx-auto px-12 xl:px-20">
+    <div class="grid grid-cols-[55%_45%] gap-10 items-start pt-10">
+
+      <!-- Left: Logo + Text + Contact Info -->
+      <div class="pt-6">
+        <a href="/" class="inline-block mb-8" aria-label="Ascension Moving">
+          <span class="flex flex-col font-bold tracking-tight text-white">
+            <span class="text-3xl flex items-center gap-2 mb-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+              ASCENSION
+            </span>
+            <span class="text-[10px] tracking-[0.2em] text-[var(--color-primary)] uppercase leading-none mb-1 font-black">Moving Company</span>
+            <span class="text-[8px] tracking-[0.1em] text-white/90">YOUR MOVE, YOUR WAY!</span>
+          </span>
+        </a>
+
+        <h1 class="text-[44px] xl:text-[52px] font-extrabold text-white leading-[1.1] tracking-tight mb-5">
+          Let's Talk About Your <br />
+          <span class="text-[var(--color-accent)]">Move.</span>
+        </h1>
+        <p class="text-white/85 text-[17px] xl:text-[18px] font-medium leading-relaxed max-w-[520px] mb-10">
+          We're here to help with your move — big or small. Reach out today and we'll get back to you as soon as possible.
+        </p>
+
+        <!-- Desktop Contact Info -->
+        <div class="flex flex-wrap gap-8">
+          <div class="flex items-center gap-4">
+            <div class="w-[46px] h-[46px] flex items-center justify-center rounded-[10px] bg-[var(--color-primary)] text-white flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h5 class="text-[11px] font-extrabold tracking-[0.15em] text-white/60 mb-0.5">PHONE</h5>
+              <a href="tel:2313429505" class="text-white font-semibold text-[15px] hover:text-[var(--color-accent)] transition-colors">(231) 342-9505</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-[46px] h-[46px] flex items-center justify-center rounded-[10px] bg-[var(--color-primary)] text-white flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <h5 class="text-[11px] font-extrabold tracking-[0.15em] text-white/60 mb-0.5">EMAIL</h5>
+              <a href="mailto:info@ascensionmoving.co" class="text-white font-semibold text-[15px] hover:text-[var(--color-accent)] transition-colors">info@ascensionmoving.co</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-[46px] h-[46px] flex items-center justify-center rounded-[10px] bg-[var(--color-primary)] text-white flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h5 class="text-[11px] font-extrabold tracking-[0.15em] text-white/60 mb-0.5">BUSINESS HOURS</h5>
+              <p class="text-white font-semibold text-[15px] mb-0">Mon – Sun: 9:00 AM – 5:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="mt-[100px]">
+        <ContactForm id="contactFormDesktop" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Mobile Layout (<lg) ===== -->
+  <div class="lg:hidden relative z-10 w-full max-w-[1400px] mx-auto px-6">
+    <nav aria-label="breadcrumb" class="mb-5">
+      <ol class="flex items-center gap-2 text-[14px]">
+        <li><a href="/" class="text-white/70 hover:text-white transition-colors font-medium">Home</a></li>
+        <li class="text-white/40">/</li>
+        <li class="text-[var(--color-accent)] font-bold">Contact</li>
+      </ol>
+    </nav>
+
+    <img src="/images/hero-section.png" alt="Ascension Moving Service"
+      class="w-full h-[240px] object-cover object-center rounded-xl shadow-lg mb-6" />
+
+    <h1 class="text-[34px] font-extrabold text-white leading-[1.1] tracking-tight mb-3">
+      Let's Talk About Your <br />
+      <span class="text-[var(--color-accent)]">Move.</span>
+    </h1>
+    <div class="w-10 h-[3px] rounded bg-[var(--color-primary)] mb-4"></div>
+
+    <p class="text-white/85 text-[15px] font-medium leading-relaxed max-w-[450px] mb-7">
+      We're here to help with your move — big or small. Reach out today and we'll get back to you as soon as possible.
+    </p>
+
+    <!-- Mobile Contact Info -->
+    <div class="space-y-4 mb-8">
+      <div class="flex items-center gap-3">
+        <div class="w-[48px] h-[48px] rounded-full bg-[var(--color-primary)]/15 text-[var(--color-accent)] flex items-center justify-center flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <h5 class="text-[11px] font-extrabold tracking-[0.15em] text-white/60 mb-0.5">PHONE</h5>
+          <a href="tel:2313429505" class="text-white font-medium text-[15px]">(231) 342-9505</a>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-[48px] h-[48px] rounded-full bg-[var(--color-primary)]/15 text-[var(--color-accent)] flex items-center justify-center flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div>
+          <h5 class="text-[11px] font-extrabold tracking-[0.15em] text-white/60 mb-0.5">EMAIL</h5>
+          <a href="mailto:info@ascensionmoving.co" class="text-white font-medium text-[15px]">info@ascensionmoving.co</a>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-[48px] h-[48px] rounded-full bg-[var(--color-primary)]/15 text-[var(--color-accent)] flex items-center justify-center flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h5 class="text-[11px] font-extrabold tracking-[0.15em] text-white/60 mb-0.5">BUSINESS HOURS</h5>
+          <p class="text-white font-medium text-[15px] mb-0">Mon – Sun: 9:00 AM – 5:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Form -->
+    <ContactForm id="contactFormMobile" />
+  </div>
+</section>
+
+<!-- Mobile fixed bottom CTA -->
+<div class="contact-mobile-cta">
+  <a href="#contactFormMobile" class="contact-mobile-cta-link">REQUEST A FREE ESTIMATE</a>
+</div>
+
+<style>
+  .contact-mobile-cta {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .contact-mobile-cta {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .contact-mobile-cta.cta-hidden {
+      opacity: 0;
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+    .contact-mobile-cta-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--color-primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .contact-mobile-cta-link:hover {
+      background: var(--color-accent);
+    }
+  }
+</style>
+
+<script>
+  const cta = document.querySelector('.contact-mobile-cta');
+  const form = document.getElementById('contactFormMobile');
+  if (cta && form) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          cta.classList.toggle('cta-hidden', entry.isIntersecting);
+        });
+      },
+      { rootMargin: '0px' }
+    );
+    observer.observe(form);
+  }
+</script>
