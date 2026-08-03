@@ -1,12 +1,12 @@
 ---
 import ReviewCarousel from './ReviewCarousel.astro';
-import WaveDivider from '../../shared/WaveDivider.astro';
+import CustomShapeDivider from '../../shared/CustomShapeDivider.astro';
 ---
 
 <section class="relative py-32 overflow-hidden bg-[var(--color-dark-navy)]">
 
   <!-- Top Wave Divider (light-gray flowing into dark-navy) -->
-  <WaveDivider fill="var(--color-light-gray)" position="top" />
+  <CustomShapeDivider fill="light" position="top" />
 
   <div class="relative z-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
     <!-- Header Content -->
@@ -26,6 +26,6 @@ import WaveDivider from '../../shared/WaveDivider.astro';
   </div>
 
   <!-- Bottom Wave Divider (dark-navy flowing into light-gray) -->
-  <WaveDivider fill="var(--color-light-gray)" position="bottom" />
+  <CustomShapeDivider fill="light" position="bottom" />
 </section>
 
