@@ -4,12 +4,13 @@ interface Props {
   description: string;
   image: string;
   icon: string;
+  href: string;
 }
 
-const { title, description, image, icon } = Astro.props;
+const { title, description, image, icon, href } = Astro.props;
 ---
 
-<a href="#" class="group relative flex flex-col h-72 md:h-80 w-full overflow-hidden rounded-2xl bg-dark-navy shadow-lg transition-transform hover:-translate-y-1 hover:shadow-premium duration-300">
+<a href={href} class="group relative flex flex-col h-80 md:h-96 w-full overflow-hidden rounded-2xl bg-dark-navy shadow-lg transition-transform hover:-translate-y-1 hover:shadow-premium duration-300">
   <!-- Background Image -->
   <div class="absolute inset-0 w-full h-full">
     <img 
