@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/hero/PageHero.astro';
 import AboutUsSection from '../components/about-us/AboutUsSection.astro';
 import MovingProcessSection from '../components/about-us/MovingProcessSection.astro';
 import TrustSection from '../components/v2/sections/TrustSection.astro';
@@ -10,7 +11,20 @@ import Footer from '../components/layout/Footer.astro';
 
 <Base title="About Us | Ascension Moving Company">
   <Navbar />
-  <main class="w-full bg-[var(--color-light-gray)] pt-[100px] lg:pt-0">
+  <main class="w-full bg-[var(--color-light-gray)] lg:pt-0">
+    <div class="lg:hidden">
+      <PageHero
+        eyebrow="Our Story"
+        title="Built on Integrity. Focused on People."
+        subtitle="We're a locally owned and operated moving company proudly serving Northern Michigan with honesty, hard work, and a commitment to doing things the right way."
+        image="/images/about us/hero-img.png"
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "About Us", href: "/about-us" }
+        ]}
+        cta={{ label: "Get a Free Quote", href: "/contact-us" }}
+      />
+    </div>
     <AboutUsSection />
     <MovingProcessSection />
     <TrustSection />

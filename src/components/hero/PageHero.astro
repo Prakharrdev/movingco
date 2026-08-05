@@ -1,0 +1,75 @@
+---
+interface Crumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  image: string;
+  crumbs: Crumb[];
+  cta?: { label: string; href: string };
+}
+
+const { eyebrow, title, subtitle, image, crumbs, cta } = Astro.props;
+---
+
+<section class="relative w-full min-h-[100svh] flex flex-col overflow-hidden bg-[var(--color-dark-navy)]">
+  <!-- Background Image -->
+  <img
+    src={image}
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover object-center z-0"
+    loading="eager"
+  />
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-[var(--color-dark-navy)]/60 z-[1]"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-[calc(56px+24px)] lg:pt-[calc(var(--navbar-h)+40px)] pb-16 flex-grow flex flex-col justify-start">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 list-none m-0 p-0 text-sm">
+        {crumbs.map((crumb, i) => (
+          <li class="flex items-center gap-2">
+            {i > 0 && <span class="text-white/40">/</span>}
+            {i === crumbs.length - 1 ? (
+              <span class="text-[var(--color-accent)] font-bold">{crumb.label}</span>
+            ) : (
+              <a href={crumb.href} class="text-white/70 hover:text-white transition-colors">{crumb.label}</a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    {eyebrow && (
+      <p class="text-[var(--color-accent)] font-bold text-sm tracking-[0.15em] uppercase mb-4">{eyebrow}</p>
+    )}
+
+    <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-white leading-[1.1] mb-6">
+      {title}
+    </h1>
+
+    {subtitle && (
+      <p class="text-white/85 text-[clamp(1rem,1.5vw,1.25rem)] leading-relaxed max-w-[560px] mb-10">
+        {subtitle}
+      </p>
+    )}
+
+    {cta && (
+      <a
+        href={cta.href}
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--color-primary)] to-[#4FA4FF] text-white font-extrabold text-[16px] px-8 py-4 rounded-full shadow-[0_0_20px_rgba(46,125,235,0.45)] hover:-translate-y-[2px] hover:shadow-[0_0_28px_rgba(79,164,255,0.65)] transition-all w-fit"
+      >
+        {cta.label}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+        </svg>
+      </a>
+    )}
+  </div>
+</section>
