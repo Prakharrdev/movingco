@@ -19,7 +19,7 @@ const { eyebrow, title, subtitle, image, crumbs, cta } = Astro.props;
 <section class="w-full bg-white pt-[56px] pb-12 text-[var(--color-dark-navy)]">
   <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
     <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb" class="mb-4">
+    <nav aria-label="breadcrumb" class="h-10 flex items-center">
       <ol class="flex items-center gap-2 list-none m-0 p-0 text-base leading-6">
         {crumbs.map((crumb, i) => (
           <li class="flex items-center gap-2">
