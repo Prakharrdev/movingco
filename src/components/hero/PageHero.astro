@@ -11,12 +11,13 @@ interface Props {
   image: string;
   crumbs: Crumb[];
   cta?: { label: string; href: string };
+  imageFullWidth?: boolean;
 }
 
-const { eyebrow, title, subtitle, image, crumbs, cta } = Astro.props;
+const { eyebrow, title, subtitle, image, crumbs, cta, imageFullWidth = false } = Astro.props;
 ---
 
-<section class="page-hero w-full bg-white text-[var(--color-dark-navy)]">
+<section class:list={['page-hero w-full bg-white text-[var(--color-dark-navy)]', { 'page-hero--full-image': imageFullWidth }]}>
   <div class="site-container">
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="page-hero-breadcrumb flex items-center">
@@ -33,15 +34,27 @@ const { eyebrow, title, subtitle, image, crumbs, cta } = Astro.props;
         ))}
       </ol>
     </nav>
+  </div>
 
-    <!-- Grace-style stacked hero image -->
+  {imageFullWidth ? (
     <img
       src={image}
       alt={title}
-      class="page-hero-image block w-full object-cover object-center rounded-[24px]"
+      class="page-hero-image page-hero-image--full block w-full object-cover object-center"
       loading="eager"
     />
+  ) : (
+    <div class="site-container">
+      <img
+        src={image}
+        alt={title}
+        class="page-hero-image block w-full object-cover object-center rounded-[24px]"
+        loading="eager"
+      />
+    </div>
+  )}
 
+  <div class="site-container">
     <div class="pt-8 md:pt-12 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
       <div class="max-w-2xl flex-1">
         {eyebrow && (
@@ -109,6 +122,11 @@ const { eyebrow, title, subtitle, image, crumbs, cta } = Astro.props;
 
   .page-hero-image {
     height: clamp(14rem, 30vw, 25rem);
+  }
+
+  .page-hero-image--full {
+    height: clamp(16rem, 35vw, 28rem);
+    border-radius: 0;
   }
 
   .page-hero-subtitle {
