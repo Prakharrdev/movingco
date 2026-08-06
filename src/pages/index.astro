@@ -7,12 +7,11 @@ import Services from '../components/services/Services.astro';
 import TrustSection from '../components/v2/sections/TrustSection.astro';
 import ReviewsSection from '../components/v2/sections/ReviewsSection.astro';
 // import RecentWorkSection from '../components/v2/sections/RecentWorkSection.astro';
-import CTASection from '../components/v2/sections/CTASection.astro';
 import MapSection from '../components/v2/sections/MapSection.astro';
 import Footer from '../components/layout/Footer.astro';
 ---
 
-<Base title="Ascension Moving Company">
+<Base title="Ascension Moving Company" description="Professional moving services in Michigan. Local or long-distance, we handle your move with care, efficiency, and professionalism. Trusted by 100+ customers.">
 	<Navbar />
 	<main class="w-full bg-[var(--color-light-gray)]">
 		<Hero />
@@ -21,7 +20,6 @@ import Footer from '../components/layout/Footer.astro';
 		<ReviewsSection />
 		{/* <RecentWorkSection /> */}
 		<TrustSection />
-		<CTASection floating />
 		<MapSection />
 		<Footer />
 	</main>
