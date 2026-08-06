@@ -1,10 +1,43 @@
 ---
 ---
 
-<div class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-slate-100">
+<div class="hero-background absolute inset-0 w-full h-full z-0 overflow-hidden bg-slate-100">
   <!-- Background Image Layer -->
-  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100" style="background-image: url('/images/hero-section.png');"></div>
-  
-  <!-- Subtle gradient just at the very top for navbar readability if needed, otherwise no overlay -->
-  <div class="absolute inset-x-0 top-0 bg-gradient-to-b from-black/40 via-transparent to-transparent h-[clamp(10rem,25vw,12rem)]"></div>
+  <div class="hero-background-image absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('/images/new-herosection.png');"></div>
+
+  <!-- Keep the left copy legible without hiding the truck image. -->
+  <div class="hero-background-wash absolute inset-0"></div>
 </div>
+
+<style>
+  .hero-background-image {
+    background-position: 55% center;
+  }
+
+  .hero-background-wash {
+    background: linear-gradient(
+      90deg,
+      rgb(255 255 255 / 0.96) 0%,
+      rgb(255 255 255 / 0.92) 32%,
+      rgb(255 255 255 / 0.52) 50%,
+      rgb(255 255 255 / 0.04) 70%,
+      rgb(7 28 53 / 0.12) 100%
+    );
+  }
+
+  @media (max-width: 63.999rem) {
+    .hero-background-image {
+      background-position: 62% center;
+    }
+
+    .hero-background-wash {
+      background: linear-gradient(
+        180deg,
+        rgb(255 255 255 / 0.96) 0%,
+        rgb(255 255 255 / 0.84) 42%,
+        rgb(255 255 255 / 0.6) 75%,
+        rgb(255 255 255 / 0.78) 100%
+      );
+    }
+  }
+</style>

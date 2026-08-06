@@ -1,56 +1,48 @@
 ---
 ---
 
-<div class="trust-grid mt-10 w-full">
+<div class="trust-row w-full flex items-center justify-between border-t border-[rgb(7,28,53,0.15)] pt-6 flex-wrap gap-4">
   
-  <div class="trust-item flex flex-col items-center text-center">
-    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+  <!-- Google Reviews -->
+  <div class="flex items-center gap-3">
+    <div class="flex flex-col">
+      <div class="flex items-center gap-1 mb-1">
+        <!-- Google Logo SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28">
+          <path fill="#4285F4" d="M23.7449 12.27C23.7449 11.48 23.6749 10.73 23.5549 10H12.2549V14.51H18.7249C18.4349 15.99 17.5849 17.24 16.3249 18.09V21.09H20.1849C22.4449 19.01 23.7449 15.92 23.7449 12.27Z"/>
+          <path fill="#34A853" d="M12.255 24C15.495 24 18.205 22.92 20.185 21.09L16.325 18.09C15.245 18.81 13.875 19.25 12.255 19.25C9.11496 19.25 6.45496 17.14 5.50496 14.29H1.54492V17.38C3.51492 21.3 7.56496 24 12.255 24Z"/>
+          <path fill="#FBBC05" d="M5.50496 14.29C5.26496 13.56 5.12496 12.8 5.12496 12C5.12496 11.2 5.26496 10.44 5.50496 9.71V6.62H1.54492C0.734922 8.23 0.254922 10.06 0.254922 12C0.254922 13.94 0.734922 15.77 1.54492 17.38L5.50496 14.29Z"/>
+          <path fill="#EA4335" d="M12.255 4.75C14.025 4.75 15.605 5.36 16.855 6.55L20.275 3.13C18.205 1.19 15.495 0 12.255 0C7.56496 0 3.51492 2.7 1.54492 6.62L5.50496 9.71C6.45496 6.86 9.11496 4.75 12.255 4.75Z"/>
+        </svg>
+      </div>
+      <div class="flex items-center gap-1">
+        <!-- 5 Stars -->
+        <div class="flex text-[#FBBC05]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <span class="text-[#071C35] font-extrabold text-sm leading-none mt-[2px]">4.9</span>
+      </div>
     </div>
-    <span class="text-white text-xs md:text-sm font-medium leading-tight">Licensed<br/>& Insured</span>
   </div>
 
-  <div class="trust-item flex flex-col items-center text-center">
-    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-    </div>
-    <span class="text-white text-xs md:text-sm font-medium leading-tight">Professional<br/>Movers</span>
+  <div class="h-10 w-[1px] bg-[rgb(7,28,53,0.15)] hidden sm:block"></div>
+
+  <!-- Review Count -->
+  <div class="flex flex-col">
+    <span class="text-[1.125rem] font-extrabold text-[#071C35] leading-none mb-1">100+</span>
+    <span class="text-[#17263d] text-[11px] uppercase tracking-wider font-bold">5-Star Reviews</span>
   </div>
 
-  <div class="trust-item flex flex-col items-center text-center">
-    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    </div>
-    <span class="text-white text-xs md:text-sm font-medium leading-tight">On-Time<br/>Service</span>
-  </div>
+  <div class="h-10 w-[1px] bg-[rgb(7,28,53,0.15)] hidden sm:block"></div>
 
-  <div class="trust-item flex flex-col items-center text-center">
-    <div class="w-10 h-10 text-[var(--color-primary)] flex items-center justify-center mb-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-    </div>
-    <span class="text-white text-xs md:text-sm font-medium leading-tight">Careful &<br/>Reliable</span>
+  <!-- Licensed & Insured -->
+  <div class="flex flex-col">
+    <span class="text-[1.125rem] font-extrabold text-[#071C35] leading-none mb-1">Licensed</span>
+    <span class="text-[#17263d] text-[11px] uppercase tracking-wider font-bold">& Insured</span>
   </div>
 
 </div>
-
-<style>
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1rem, 3vw, 2rem);
-  }
-
-  .trust-item {
-    min-inline-size: 0;
-  }
-
-  @media (min-width: 40rem) {
-    .trust-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .trust-item + .trust-item {
-      border-inline-start: 1px solid rgb(255 255 255 / 20%);
-    }
-  }
-</style>

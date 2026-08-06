@@ -1,7 +1,12 @@
 ---
+interface Props {
+  floating?: boolean;
+}
+
+const { floating = false } = Astro.props;
 ---
 
-<section class="cta-section">
+<section class:list={['cta-section', { 'cta-section--floating': floating }]}>
   <div class="site-container">
     <div class="rounded-2xl bg-white shadow-lg overflow-hidden">
       <div class="cta-content flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -36,6 +41,14 @@
   .cta-section {
     padding-block: clamp(1.5rem, 3vw, 2.5rem);
     margin-block-end: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  :global(.cta-section.cta-section--floating) {
+    position: relative;
+    z-index: 10;
+    padding-block: 0;
+    margin-block-start: clamp(-5rem, -6vw, -2rem);
+    margin-block-end: 0;
   }
 
   .cta-content {

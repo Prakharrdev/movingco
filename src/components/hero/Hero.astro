@@ -20,7 +20,7 @@ import HeroWave from '../shared/HeroWave.astro';
       
       <!-- Right Content (Form) -->
       <div class="hero-form-column w-full flex items-center justify-center lg:justify-end relative z-10">
-        <div class="w-full">
+        <div class="quote-card-wrapper w-full">
           <QuoteCard />
         </div>
       </div>
@@ -40,20 +40,26 @@ import HeroWave from '../shared/HeroWave.astro';
   .hero-container {
     min-block-size: calc(max(36rem, 80svh) - var(--site-header-h));
     padding-block-start: calc(var(--site-header-h) + clamp(1.5rem, 3vw, 2.5rem));
-    padding-block-end: var(--section-space-compact);
+    padding-block-end: clamp(6rem, 12vw, 10rem);
   }
 
   .hero-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(min(100%, 30rem), 0.85fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(min(100%, 32rem), auto);
     align-items: center;
     gap: clamp(2rem, 5vw, 5rem);
     margin-block-start: clamp(0rem, 2vw, 3rem);
   }
 
   .hero-content-column,
-  .hero-form-column {
+  .hero-form-column,
+  .quote-card-wrapper {
     min-inline-size: 0;
+  }
+
+  .quote-card-wrapper {
+    display: flex;
+    justify-content: flex-end;
   }
 
   @media (max-width: 63.999rem) {
@@ -63,6 +69,17 @@ import HeroWave from '../shared/HeroWave.astro';
     }
 
     .hero-form-column {
+      justify-content: flex-end;
+    }
+
+    .quote-card-wrapper {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: 39.999rem) {
+    .hero-form-column,
+    .quote-card-wrapper {
       justify-content: center;
     }
   }

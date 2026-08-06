@@ -3,42 +3,73 @@ import TrustGrid from './TrustGrid.astro';
 ---
 
 <div class="hero-copy flex flex-col items-start text-left relative z-10 w-full">
-  
-  <!-- Hero Logo -->
-  <a href="/" class="mb-[clamp(1.5rem,3vw,2.375rem)] self-start inline-block" aria-label="Ascension Moving">
-    <img
-      src="/images/Logo/logo.png"
-      alt="Ascension Moving Company"
-      class="hero-logo rounded-full object-cover"
-    />
-  </a>
+  <p class="hero-eyebrow flex items-center gap-3 text-[#e87516] font-extrabold uppercase tracking-[0.12em] mb-5">
+    <span aria-hidden="true"></span>
+    Your Move, Our Mission
+  </p>
 
-  <h1 class="text-[clamp(2.25rem,5vw,4rem)] font-[800] text-white leading-[1.1] tracking-[-0.02em] mb-6">
-    Professional Moving Services in
-    {' '}<span class="text-[var(--color-primary)]">Northern Michigan</span>
+  <h1 class="text-[clamp(2.25rem,4.5vw,3.75rem)] font-[800] text-[#071C35] leading-[0.98] tracking-[-0.035em] mb-6 uppercase">
+    <span>Professional</span>
+    <span>Moving Services</span>
+    <span class="text-[var(--color-primary)]">in Michigan</span>
   </h1>
   
-  <p class="hero-description text-base md:text-[20px] font-medium text-white/90 leading-[1.6] mb-4">
-    Local or long-distance, big or small — we move your life with care. Your Move, Your Way!
+  <p class="hero-description text-base md:text-[1.125rem] font-medium text-[#17263d] leading-[1.65] mb-8">
+    Local or long-distance, we handle your move with care, efficiency, and professionalism.
   </p>
+
+  <!-- Feature Bullets -->
+  <ul class="flex flex-col gap-6 mb-10 w-full">
+    <li class="flex items-start gap-4">
+      <div class="w-12 h-12 rounded-full border-2 border-[#e87516] text-[#e87516] flex items-center justify-center flex-shrink-0 bg-white/50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <h4 class="text-[#071C35] font-extrabold text-[1.05rem] leading-tight mb-1">Experienced & Trained Movers</h4>
+        <p class="text-[#17263d] text-sm font-medium">Skilled professionals you can trust.</p>
+      </div>
+    </li>
+    <li class="flex items-start gap-4">
+      <div class="w-12 h-12 rounded-full border-2 border-[#e87516] text-[#e87516] flex items-center justify-center flex-shrink-0 bg-white/50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <div>
+        <h4 class="text-[#071C35] font-extrabold text-[1.05rem] leading-tight mb-1">Local & Long-Distance Moves</h4>
+        <p class="text-[#17263d] text-sm font-medium">Reliable services across Michigan.</p>
+      </div>
+    </li>
+    <li class="flex items-start gap-4">
+      <div class="w-12 h-12 rounded-full border-2 border-[#e87516] text-[#e87516] flex items-center justify-center flex-shrink-0 bg-white/50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <div>
+        <h4 class="text-[#071C35] font-extrabold text-[1.05rem] leading-tight mb-1">Safe & Secure Handling</h4>
+        <p class="text-[#17263d] text-sm font-medium">Your belongings are in safe hands.</p>
+      </div>
+    </li>
+  </ul>
   
   <TrustGrid />
 </div>
 
 <style>
-  .hero-logo {
-    width: clamp(6.25rem, 10vw, 7.5rem);
-    height: clamp(6.25rem, 10vw, 7.5rem);
-    border-radius: 50%;
-    background-color: var(--color-overlay, rgba(7, 28, 53, 0.6));
-    background-size: cover;
-    background-position: center;
-    border: 3px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  }
-
   .hero-copy {
     max-inline-size: min(100%, 42rem);
+  }
+
+  .hero-eyebrow {
+    font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  }
+
+  .hero-eyebrow span {
+    display: block;
+    inline-size: clamp(1.5rem, 3vw, 2rem);
+    block-size: 0.1875rem;
+    background: #e87516;
+  }
+
+  .hero-copy h1 span {
+    display: block;
   }
 
   .hero-description {
