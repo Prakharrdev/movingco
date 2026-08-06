@@ -2,10 +2,10 @@
 ---
 
 <div class="flex flex-col w-full bg-white">
-  <section class="flex flex-col lg:flex-row w-full relative">
+  <section class="about-story flex flex-col lg:flex-row w-full relative">
     <!-- Left Side: Image -->
-    <div class="hidden lg:block w-full lg:w-2/3 relative">
-      <div class="lg:sticky lg:top-[72px] w-full h-[50vh] lg:h-[calc(100vh-72px)] min-h-[400px]">
+    <div class="about-story-image hidden lg:block relative">
+      <div class="about-story-image-frame lg:sticky w-full">
         <img 
           src="/images/about us/hero-img.png" 
           alt="Professional moving company crew unloading" 
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Right Side: Content -->
-    <div class="w-full lg:w-1/3 flex flex-col justify-center px-8 lg:px-10 xl:px-12 py-16 lg:py-20">
+    <div class="about-story-content w-full flex flex-col justify-center">
       <div class="max-w-[600px]">
         
         <!-- Section Header -->
@@ -55,8 +55,8 @@
   </section>
 
   <!-- Trust Cards Section -->
-  <section class="w-full bg-[#FAFBFC] py-16 lg:py-24 px-4 md:px-8 border-t border-gray-100 relative z-10 shadow-[0_-10px_40px_rgba(0,0,0,0.02)]">
-    <div class="max-w-[1440px] mx-auto">
+  <section class="about-trust w-full bg-[#FAFBFC] border-t border-gray-100 relative z-10 shadow-[0_-10px_40px_rgba(0,0,0,0.02)]">
+    <div class="site-container">
       
       <!-- Heading -->
       <div class="flex flex-col items-center justify-center text-center mb-16">
@@ -71,7 +71,7 @@
       </div>
 
       <!-- Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      <div class="about-trust-grid grid gap-6 lg:gap-8">
         
         <!-- Card 1 -->
         <div class="bg-white rounded-[20px] p-8 flex flex-col items-center text-center shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-50 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-300">
@@ -145,3 +145,39 @@
   </section>
 </div>
 
+<style>
+  .about-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
+  }
+
+  .about-story-image {
+    min-inline-size: 0;
+  }
+
+  .about-story-image-frame {
+    top: var(--navbar-h-scrolled);
+    block-size: max(25rem, calc(100svh - var(--navbar-h-scrolled)));
+    min-block-size: 25rem;
+  }
+
+  .about-story-content {
+    min-inline-size: 0;
+    padding-inline: clamp(1.5rem, 4vw, 3rem);
+    padding-block: var(--section-space-compact);
+  }
+
+  .about-trust {
+    padding-block: var(--section-space);
+  }
+
+  .about-trust-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  }
+
+  @media (max-width: 63.999rem) {
+    .about-story {
+      display: block;
+    }
+  }
+</style>

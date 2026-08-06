@@ -2,15 +2,15 @@
 import ContactForm from './ContactForm.astro';
 ---
 
-<section class="relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[var(--color-dark-navy)] pt-[calc(var(--navbar-h)+40px)] pb-16 lg:pb-24">
+<section class="contact-hero relative w-full flex flex-col justify-center overflow-hidden bg-[var(--color-dark-navy)]">
   <!-- Background -->
   <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50" style="background-image: url('/images/hero-section.png');"></div>
   </div>
 
   <!-- ===== Desktop Layout (lg+) ===== -->
-  <div class="hidden lg:block relative z-10 w-full max-w-[1400px] mx-auto px-12 xl:px-20">
-    <div class="grid grid-cols-1 lg:grid-cols-[55%_1fr] gap-10 items-start pt-10">
+  <div class="site-container contact-hero-desktop hidden lg:block relative z-10">
+    <div class="contact-hero-desktop-grid grid items-start">
 
       <!-- Left: Logo + Text + Contact Info -->
       <div class="pt-6">
@@ -75,7 +75,7 @@ import ContactForm from './ContactForm.astro';
   </div>
 
   <!-- ===== Mobile Layout (<lg) ===== -->
-  <div class="lg:hidden relative z-10 w-full max-w-[1400px] mx-auto px-6">
+  <div class="site-container contact-hero-mobile lg:hidden relative z-10">
     <nav aria-label="breadcrumb" class="mb-5">
       <ol class="flex items-center gap-2 text-[14px]">
         <li><a href="/" class="text-white/70 hover:text-white transition-colors font-medium">Home</a></li>
@@ -85,9 +85,9 @@ import ContactForm from './ContactForm.astro';
     </nav>
 
     <img src="/images/hero-section.png" alt="Ascension Moving Service"
-      class="w-full aspect-video max-h-[240px] object-cover object-center rounded-xl shadow-lg mb-6" />
+      class="contact-mobile-image w-full object-cover object-center rounded-xl shadow-lg mb-6" />
 
-    <h1 class="text-[34px] font-extrabold text-white leading-[1.1] tracking-tight mb-3">
+    <h1 class="text-[clamp(2rem,8vw,2.5rem)] font-extrabold text-white leading-[1.1] tracking-tight mb-3">
       Let's Talk About Your <br />
       <span class="text-[var(--color-accent)]">Move.</span>
     </h1>
@@ -141,11 +141,31 @@ import ContactForm from './ContactForm.astro';
 </div>
 
 <style>
+  .contact-hero {
+    min-block-size: 100svh;
+    padding-block-start: calc(var(--site-header-h) + clamp(1.5rem, 3vw, 2.5rem));
+    padding-block-end: var(--section-space-compact);
+  }
+
+  .contact-hero-desktop-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(min(100%, 30rem), 0.9fr);
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  .contact-mobile-image {
+    aspect-ratio: 16 / 9;
+    height: clamp(10rem, 50vw, 15rem);
+  }
+
   .contact-mobile-cta {
     display: none;
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 63.999rem) {
+    .contact-hero {
+      padding-block-end: calc(var(--section-space-compact) + 3.25rem + env(safe-area-inset-bottom, 0px));
+    }
+
     .contact-mobile-cta {
       display: block;
       position: fixed;
@@ -164,9 +184,12 @@ import ContactForm from './ContactForm.astro';
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: clamp(0.35rem, 1vw, 0.5rem);
       width: 100%;
-      padding: 14px 20px;
+      min-block-size: 3.25rem;
+      padding-block: clamp(0.75rem, 3vw, 0.875rem);
+      padding-inline: var(--page-gutter);
+      padding-block-end: calc(clamp(0.75rem, 3vw, 0.875rem) + env(safe-area-inset-bottom, 0px));
       background: var(--color-primary);
       color: #fff;
       font-weight: 800;

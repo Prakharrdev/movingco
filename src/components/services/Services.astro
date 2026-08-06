@@ -68,8 +68,8 @@ const services = [
 ];
 ---
 
-<section class="py-24 bg-light-gray" id="services">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="section-space bg-light-gray" id="services">
+  <div class="site-container">
     
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
@@ -79,7 +79,7 @@ const services = [
         <div class="h-px w-12 bg-primary/30"></div>
       </div>
       
-      <h2 class="text-4xl md:text-5xl font-extrabold text-dark-navy mb-4 tracking-tight">
+      <h2 class="text-[clamp(2rem,4vw,3rem)] font-extrabold text-dark-navy mb-4 tracking-tight">
         Complete Moving Solutions<br/>
         <span class="text-primary">Tailored to Your Needs</span>
       </h2>
@@ -90,7 +90,7 @@ const services = [
     </div>
 
     <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+    <div class="services-grid grid gap-6 lg:gap-8">
       {services.map(service => (
         <ServiceCard 
           title={service.title}
@@ -104,3 +104,9 @@ const services = [
     
   </div>
 </section>
+
+<style>
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+</style>

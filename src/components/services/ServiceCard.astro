@@ -10,7 +10,7 @@ interface Props {
 const { title, description, image, icon, href } = Astro.props;
 ---
 
-<a href={href} class="group relative flex flex-col h-80 md:h-96 w-full overflow-hidden rounded-2xl bg-dark-navy shadow-lg transition-transform hover:-translate-y-1 hover:shadow-premium duration-300">
+<a href={href} class="service-card group relative flex flex-col w-full overflow-hidden rounded-2xl bg-dark-navy shadow-lg transition-transform hover:-translate-y-1 hover:shadow-premium duration-300">
   <!-- Background Image -->
   <div class="absolute inset-0 w-full h-full">
     <img 
@@ -24,7 +24,7 @@ const { title, description, image, icon, href } = Astro.props;
   <div class="absolute inset-0 bg-gradient-to-t from-[#041121] via-[#041121]/80 to-transparent"></div>
 
   <!-- Content -->
-  <div class="relative z-10 flex flex-col justify-end h-full p-6 sm:p-8">
+  <div class="relative z-10 flex flex-col justify-end h-full p-[clamp(1.25rem,3vw,2rem)]">
     <div class="flex items-center gap-4 mb-3">
       <!-- Icon Container -->
       <div class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/90 text-white shadow-md">
@@ -45,3 +45,9 @@ const { title, description, image, icon, href } = Astro.props;
     </div>
   </div>
 </a>
+
+<style>
+  .service-card {
+    block-size: clamp(20rem, 32vw, 24rem);
+  }
+</style>

@@ -41,7 +41,7 @@ import ReviewCard from './ReviewCard.astro';
   .review-carousel-outer {
     position: relative;
     width: 100%;
-    padding: 0 48px;
+    padding-inline: clamp(2.25rem, 5vw, 3rem);
     box-sizing: border-box;
   }
 
@@ -100,23 +100,23 @@ import ReviewCard from './ReviewCard.astro';
     margin-top: 20px;
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 63.999rem) {
     .review-track__slide {
       flex: 0 0 calc(50% - 12px);
     }
 
     .review-carousel-outer {
-      padding: 0 32px;
+      padding-inline: clamp(2.25rem, 5vw, 3rem);
     }
   }
 
-  @media (max-width: 639px) {
+  @media (max-width: 39.999rem) {
     .review-track__slide {
       flex: 0 0 calc(100% - 8px);
     }
 
     .review-carousel-outer {
-      padding: 0 36px;
+      padding-inline: clamp(2.25rem, 9vw, 3rem);
     }
 
     .review-arrow {
@@ -143,18 +143,24 @@ import ReviewCard from './ReviewCard.astro';
     let autoTimer: ReturnType<typeof setInterval> | null = null;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function getVisible() {
-      return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 4;
-    }
-
     function getCardWidth() {
       const gap = parseFloat(getComputedStyle(track).gap) || 24;
       return cards[0].offsetWidth + gap;
     }
 
+    function getVisible() {
+      const gap = parseFloat(getComputedStyle(track).gap) || 24;
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      if (!cardWidth) return 1;
+      return Math.max(1, Math.min(total, Math.round((track.clientWidth + gap) / (cardWidth + gap))));
+    }
+
+    function getPages() {
+      return Math.max(1, total - getVisible() + 1);
+    }
+
     function buildDots() {
-      const visible = getVisible();
-      const pages = total - visible + 1;
+      const pages = getPages();
       dotsWrap.innerHTML = '';
       for (let i = 0; i < pages; i++) {
         const d = document.createElement('span');
@@ -182,21 +188,19 @@ import ReviewCard from './ReviewCard.astro';
     }
 
     function goTo(index: number) {
-      const visible = getVisible();
-      const pages = total - visible + 1;
+      const pages = getPages();
       current = Math.max(0, Math.min(index, pages - 1));
       track.scrollTo({ left: getCardWidth() * current, behavior: 'smooth' });
       updateDots();
     }
 
     function next() {
-      const visible = getVisible();
-      const pages = total - visible + 1;
+      const pages = getPages();
       goTo(current + 1 < pages ? current + 1 : 0);
     }
 
     function prev() {
-      goTo(current > 0 ? current - 1 : total - getVisible());
+      goTo(current > 0 ? current - 1 : getPages() - 1);
     }
 
     function startAuto() {

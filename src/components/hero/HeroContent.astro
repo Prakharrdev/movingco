@@ -2,10 +2,10 @@
 import TrustGrid from './TrustGrid.astro';
 ---
 
-<div class="flex flex-col items-start text-left max-w-xl xl:max-w-2xl relative z-10 w-full">
+<div class="hero-copy flex flex-col items-start text-left relative z-10 w-full">
   
   <!-- Hero Logo -->
-  <a href="/" class="mb-7 md:mb-[38px] self-start inline-block" aria-label="Ascension Moving">
+  <a href="/" class="mb-[clamp(1.5rem,3vw,2.375rem)] self-start inline-block" aria-label="Ascension Moving">
     <img
       src="/images/Logo/logo.png"
       alt="Ascension Moving Company"
@@ -14,14 +14,12 @@ import TrustGrid from './TrustGrid.astro';
   </a>
 
   <h1 class="text-[clamp(2.25rem,5vw,4rem)] font-[800] text-white leading-[1.1] tracking-[-0.02em] mb-6">
-    Professional Moving<br />Services in <br class="hidden sm:block" />
-    <span class="text-[var(--color-primary)]">Northern Michigan</span>
+    Professional Moving Services in
+    {' '}<span class="text-[var(--color-primary)]">Northern Michigan</span>
   </h1>
   
-  <p class="text-base md:text-[20px] font-medium text-white/90 leading-[1.6] max-w-full sm:max-w-[500px] mb-4">
-    Local or long-distance, big or small —<br/>
-    we move your life with care.<br/>
-    Your Move, Your Way!
+  <p class="hero-description text-base md:text-[20px] font-medium text-white/90 leading-[1.6] mb-4">
+    Local or long-distance, big or small — we move your life with care. Your Move, Your Way!
   </p>
   
   <TrustGrid />
@@ -29,8 +27,8 @@ import TrustGrid from './TrustGrid.astro';
 
 <style>
   .hero-logo {
-    width: 120px;
-    height: 120px;
+    width: clamp(6.25rem, 10vw, 7.5rem);
+    height: clamp(6.25rem, 10vw, 7.5rem);
     border-radius: 50%;
     background-color: var(--color-overlay, rgba(7, 28, 53, 0.6));
     background-size: cover;
@@ -39,10 +37,11 @@ import TrustGrid from './TrustGrid.astro';
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   }
 
-  @media (max-width: 1023px) {
-    .hero-logo {
-      width: 100px;
-      height: 100px;
-    }
+  .hero-copy {
+    max-inline-size: min(100%, 42rem);
+  }
+
+  .hero-description {
+    max-inline-size: min(100%, 31.25rem);
   }
 </style>

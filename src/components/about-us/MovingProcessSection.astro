@@ -1,10 +1,10 @@
 ---
 ---
 
-<section class="flex flex-col lg:flex-row-reverse w-full bg-[#F4F7FB]">
+<section class="process-section flex flex-col lg:flex-row-reverse w-full bg-[#F4F7FB]">
   <!-- Left Side: Image -->
-  <div class="w-full lg:w-[45%] relative">
-    <div class="lg:sticky lg:top-[100px] w-full h-[50vh] lg:h-[calc(100vh-100px)] min-h-[400px]">
+  <div class="process-image-column w-full relative">
+    <div class="process-image-frame lg:sticky w-full">
       <img 
         src="/images/about us/about.png" 
         alt="Professional movers in action inside a home" 
@@ -14,7 +14,7 @@
   </div>
 
   <!-- Right Side: Content -->
-  <div class="w-full lg:w-[55%] flex flex-col justify-center px-6 md:px-10 lg:px-16 xl:px-20 py-20 lg:py-24 bg-[#F4F7FB]">
+  <div class="process-content w-full flex flex-col justify-center bg-[#F4F7FB]">
     
     <!-- Header -->
     <div class="max-w-[800px] w-full mx-auto text-center mb-16">
@@ -28,10 +28,10 @@
     </div>
     
     <!-- 5 Steps Process Flow -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:flex xl:flex-row xl:justify-between items-start w-full max-w-[1000px] mx-auto gap-y-12 gap-x-6 xl:gap-2 relative">
+    <div class="process-steps items-start w-full max-w-[1000px] mx-auto relative">
       
       <!-- Step 1 -->
-      <div class="flex flex-col items-center text-center w-full xl:w-[18%]">
+      <div class="process-step flex flex-col items-center text-center">
         <div class="relative mb-5">
           <div class="w-20 h-20 md:w-[90px] md:h-[90px] xl:w-[110px] xl:h-[110px] rounded-full border-[2.5px] border-[#0a1e3f] flex items-center justify-center bg-[#F4F7FB] z-10 relative shadow-sm">
             <!-- Clipboard Icon -->
@@ -57,7 +57,7 @@
       </div>
 
       <!-- Step 2 -->
-      <div class="flex flex-col items-center text-center w-full xl:w-[18%]">
+      <div class="process-step flex flex-col items-center text-center">
         <div class="relative mb-5">
           <div class="w-20 h-20 md:w-[90px] md:h-[90px] xl:w-[110px] xl:h-[110px] rounded-full border-[2.5px] border-[#0a1e3f] flex items-center justify-center bg-[#F4F7FB] z-10 relative shadow-sm">
             <!-- Calendar Icon -->
@@ -87,7 +87,7 @@
       </div>
 
       <!-- Step 3 -->
-      <div class="flex flex-col items-center text-center w-full xl:w-[18%]">
+      <div class="process-step flex flex-col items-center text-center">
         <div class="relative mb-5">
           <div class="w-20 h-20 md:w-[90px] md:h-[90px] xl:w-[110px] xl:h-[110px] rounded-full border-[2.5px] border-[#0a1e3f] flex items-center justify-center bg-[#F4F7FB] z-10 relative shadow-sm">
             <!-- Box Icon -->
@@ -115,7 +115,7 @@
       </div>
 
       <!-- Step 4 -->
-      <div class="flex flex-col items-center text-center w-full xl:w-[18%]">
+      <div class="process-step flex flex-col items-center text-center">
         <div class="relative mb-5">
           <div class="w-20 h-20 md:w-[90px] md:h-[90px] xl:w-[110px] xl:h-[110px] rounded-full border-[2.5px] border-[#0a1e3f] flex items-center justify-center bg-[#F4F7FB] z-10 relative shadow-sm">
             <!-- Truck Icon -->
@@ -144,7 +144,7 @@
       </div>
 
       <!-- Step 5 -->
-      <div class="flex flex-col items-center text-center w-full xl:w-[18%]">
+      <div class="process-step flex flex-col items-center text-center">
         <div class="relative mb-5">
           <div class="w-20 h-20 md:w-[90px] md:h-[90px] xl:w-[110px] xl:h-[110px] rounded-full border-[2.5px] border-[#0a1e3f] flex items-center justify-center bg-[#F4F7FB] z-10 relative shadow-sm">
             <!-- House Icon -->
@@ -178,3 +178,75 @@
 
   </div>
 </section>
+
+<style>
+  .process-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+
+  .process-image-column {
+    min-inline-size: 0;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .process-image-frame {
+    top: var(--navbar-h-scrolled);
+    block-size: max(25rem, calc(100svh - var(--navbar-h-scrolled)));
+    min-block-size: 25rem;
+  }
+
+  .process-content {
+    min-inline-size: 0;
+    grid-column: 1;
+    grid-row: 1;
+    padding-inline: clamp(1.5rem, 4vw, 5rem);
+    padding-block: var(--section-space);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: clamp(2rem, 4vw, 3rem) clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .process-step {
+    min-inline-size: 0;
+  }
+
+  @media (min-width: 64rem) {
+    .process-image-column {
+      inline-size: auto;
+    }
+
+    .process-content {
+      inline-size: auto;
+    }
+  }
+
+  @media (min-width: 75rem) {
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      gap: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .process-step {
+      flex: 1 1 0;
+    }
+  }
+
+  @media (max-width: 63.999rem) {
+    .process-section {
+      display: block;
+    }
+
+    .process-image-column,
+    .process-content {
+      inline-size: 100%;
+      grid-column: auto;
+      grid-row: auto;
+    }
+  }
+</style>

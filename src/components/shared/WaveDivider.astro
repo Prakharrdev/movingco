@@ -64,19 +64,7 @@ const wavePath =
     position: relative;
     display: block;
     width: calc(100% + 1.3px); /* prevent hairline gap on right edge */
-    /* Uniform, responsive height across all wave dividers */
-    height: 48px;
-  }
-
-  @media (min-width: 640px) {
-    .wave-divider__svg {
-      height: 72px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .wave-divider__svg {
-      height: 80px;
-    }
+    /* Keep the curve proportional without breakpoint jumps. */
+    height: clamp(3rem, 5.5vw, 5rem);
   }
 </style>

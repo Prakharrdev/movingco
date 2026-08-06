@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="bg-[#0b1c31] p-8 md:p-10 w-full max-w-[480px] mx-auto xl:mx-0 rounded-2xl shadow-2xl relative">
+<div class="quote-card bg-[#0b1c31] w-full mx-auto xl:mx-0 rounded-2xl shadow-2xl relative">
   <h3 class="text-xl font-medium text-white mb-6 text-center">
     Get a <br/>
     <span class="text-2xl md:text-[32px] font-bold text-[var(--color-primary)] mt-1 inline-block leading-tight">Free Estimate</span>
@@ -42,10 +42,22 @@
       </div>
     </div>
     
-    <textarea placeholder="Tell us about your move..." class="w-full min-h-[100px] p-4 rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all resize-none"></textarea>
+    <textarea placeholder="Tell us about your move..." class="w-full rounded bg-white text-gray-900 placeholder:text-gray-500 text-[14px] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all resize-none quote-textarea"></textarea>
     
     <button type="submit" class="w-full py-4 bg-[var(--color-primary)] text-white font-bold text-[16px] uppercase tracking-wide rounded mt-2 hover:bg-blue-600 transition-colors">
       GET A QUOTE
     </button>
   </form>
 </div>
+
+<style>
+  .quote-card {
+    max-inline-size: min(100%, 30rem);
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  .quote-textarea {
+    min-block-size: clamp(6rem, 12vw, 7rem);
+    padding: clamp(0.75rem, 1.5vw, 1rem);
+  }
+</style>

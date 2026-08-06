@@ -3,12 +3,12 @@ import ReviewCarousel from './ReviewCarousel.astro';
 import CustomShapeDivider from '../../shared/CustomShapeDivider.astro';
 ---
 
-<section class="relative py-32 overflow-hidden bg-[var(--color-dark-navy)]">
+<section class="reviews-section relative overflow-hidden bg-[var(--color-dark-navy)]">
 
   <!-- Top Wave Divider (light-gray flowing into dark-navy) -->
   <CustomShapeDivider fill="light" position="top" />
 
-  <div class="relative z-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+  <div class="site-container relative z-20 flex flex-col items-center">
     <!-- Header Content -->
     <div class="text-center mb-16 max-w-3xl">
       <h2 class="text-white text-3xl md:text-[48px] font-bold leading-tight mb-4">
@@ -29,3 +29,8 @@ import CustomShapeDivider from '../../shared/CustomShapeDivider.astro';
   <CustomShapeDivider fill="light" position="bottom" />
 </section>
 
+<style>
+  .reviews-section {
+    padding-block: var(--section-space);
+  }
+</style>

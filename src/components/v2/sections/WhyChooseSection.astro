@@ -1,12 +1,12 @@
 ---
 ---
 
-<section class="py-16 md:py-20 bg-[var(--color-dark-navy)]">
-  <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-12">
+<section class="section-space-compact bg-[var(--color-dark-navy)]">
+  <div class="site-container">
+    <div class="why-choose-layout flex flex-col lg:flex-row lg:items-center">
 
       <!-- Left: Title & Description -->
-      <div class="lg:w-[28%] text-center lg:text-left relative">
+      <div class="why-choose-intro text-center lg:text-left relative">
         <div class="w-10 h-[3px] rounded bg-[var(--color-primary)] mb-4 mx-auto lg:mx-0"></div>
         <h2 class="text-[24px] md:text-[26px] font-extrabold text-white leading-tight tracking-tight mb-1">
           Why Choose <br class="hidden md:block" />Ascension Moving?
@@ -19,7 +19,7 @@
       </div>
 
       <!-- Right: 4 Features -->
-      <div class="lg:w-[72%]">
+      <div class="why-choose-features">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">
 
           <div class="text-center lg:text-left relative">
@@ -63,3 +63,22 @@
     </div>
   </div>
 </section>
+
+<style>
+  .why-choose-layout {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.8fr);
+    gap: clamp(2rem, 5vw, 3rem);
+  }
+
+  .why-choose-intro,
+  .why-choose-features {
+    min-inline-size: 0;
+  }
+
+  @media (max-width: 63.999rem) {
+    .why-choose-layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

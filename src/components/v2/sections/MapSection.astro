@@ -4,7 +4,7 @@ const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45337.0896
 
 <section id="map" class="w-full bg-[#F4F8FE]" aria-label="Service area map">
   <div>
-    <div class="w-full h-[50vw] max-h-[520px] min-h-[280px]">
+    <div class="map-frame w-full">
       <iframe
         src={mapSrc}
         title="Traverse City, MI — Service Area Map"
@@ -17,3 +17,9 @@ const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45337.0896
     </div>
   </div>
 </section>
+
+<style>
+  .map-frame {
+    block-size: clamp(17.5rem, 50vw, 32.5rem);
+  }
+</style>
