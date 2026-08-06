@@ -47,8 +47,14 @@ const { floating = false } = Astro.props;
     position: relative;
     z-index: 10;
     padding-block: 0;
-    margin-block-start: clamp(-5rem, -6vw, -2rem);
+    margin-block-start: -4rem;
     margin-block-end: 0;
+  }
+
+  @media (min-width: 64rem) {
+    :global(.cta-section.cta-section--floating) {
+      margin-block-start: -10rem;
+    }
   }
 
   .cta-content {
