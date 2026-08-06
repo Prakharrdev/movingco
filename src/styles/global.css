@@ -11,7 +11,7 @@
 
   --navbar-h: clamp(3.5rem, calc(2.75rem + 2.5vw), 5rem);
   --navbar-h-scrolled: clamp(3.25rem, calc(2.5rem + 2.5vw), 4.5rem);
-  --content-max: 90rem;
+  --content-max: 160rem;
   --page-gutter: clamp(1rem, calc(0.2rem + 4vw), 5rem);
   --section-space: clamp(3rem, calc(1.5rem + 5vw), 7.5rem);
   --section-space-compact: clamp(3rem, calc(2rem + 3vw), 5rem);
