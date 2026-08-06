@@ -1,13 +1,21 @@
 ---
-const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45337.08964815576!2d-85.6053845!3d44.7488275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881e32b2d7da29dd%3A0x47bfdc3f3f745621!2sTraverse%20City%2C%20MI%2C%20USA!5e0!3m2!1sen!2sin!4v1785668516472!5m2!1sen!2sin";
+interface Props {
+  src?: string;
+  title?: string;
+}
+
+const BUSINESS_MAP =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1443905.9790449897!2d-85.606771!3d45.022309449999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x401408a8c52c06af%3A0x334a9d60143b9213!2sAscension%20Moving%20Company%20LLC!5e0!3m2!1sen!2sin!4v1786048543021!5m2!1sen!2sin";
+
+const { src = BUSINESS_MAP, title = "Ascension Moving Company — Business Location Map" } = Astro.props;
 ---
 
 <section id="map" class="w-full bg-[#F4F8FE]" aria-label="Service area map">
   <div>
     <div class="map-frame w-full">
       <iframe
-        src={mapSrc}
-        title="Traverse City, MI — Service Area Map"
+        src={src}
+        title={title}
         class="w-full h-full"
         style="border:0;"
         allowfullscreen

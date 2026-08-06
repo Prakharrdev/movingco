@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Navbar from '../layout/Navbar.astro';
 import PageHero from '../hero/PageHero.astro';
+import MapSection from '../v2/sections/MapSection.astro';
 import Footer from '../layout/Footer.astro';
 
 interface Props {
@@ -9,9 +10,11 @@ interface Props {
   subtitle?: string;
   image?: string;
   crumbs?: { label: string; href: string }[];
+  mapSrc?: string;
+  mapTitle?: string;
 }
 
-const { title, subtitle, image, crumbs } = Astro.props;
+const { title, subtitle, image, crumbs, mapSrc, mapTitle } = Astro.props;
 
 const breadcrumbs = crumbs ?? [
   { label: 'Home', href: '/' },
@@ -55,6 +58,7 @@ const breadcrumbs = crumbs ?? [
       </div>
     </div>
   </main>
+  <MapSection src={mapSrc} title={mapTitle} />
   <Footer />
 </Base>
 
