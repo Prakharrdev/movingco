@@ -1,13 +1,55 @@
 ---
-import ServicePlaceholder from '../components/services/ServicePlaceholder.astro';
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/hero/PageHero.astro';
+import ReviewCard from '../components/v2/sections/ReviewCard.astro';
+import { reviews, googleReviewsUrl } from '../data/reviews';
+import TrustSection from '../components/v2/sections/TrustSection.astro';
+import CTASection from '../components/v2/sections/CTASection.astro';
+import MapSection from '../components/v2/sections/MapSection.astro';
+import Footer from '../components/layout/Footer.astro';
 ---
 
-<ServicePlaceholder
-  title="Testimonials"
-  subtitle="See what our customers say about Ascension Moving."
-  image="/images/hero-section.png"
-  crumbs={[
-    { label: "Home", href: "/" },
-    { label: "Testimonials", href: "/testimonials" }
-  ]}
-/>
+<Base title="Testimonials | Ascension Moving Company">
+  <Navbar />
+  <main class="w-full bg-[var(--color-light-gray)]">
+    <!-- Hero Section -->
+    <PageHero
+      title="What Our Customers Say"
+      subtitle="Real reviews from families and businesses across Northern Michigan."
+      image="/images/hero-section.png"
+      crumbs={[
+        { label: "Home", href: "/" },
+        { label: "Testimonials", href: "/testimonials" }
+      ]}
+      cta={{ label: "Leave a Review", href: googleReviewsUrl }}
+    />
+
+    <!-- Testimonials Grid Section -->
+    <section class="py-16 md:py-24 relative overflow-hidden bg-[var(--color-light-gray)]">
+      <div class="site-container relative z-10">
+        <!-- Header Content if needed, but PageHero covers it. We can add a subtle intro here if desired -->
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+          <h2 class="text-[var(--color-dark-navy)] text-3xl md:text-[40px] font-bold leading-tight mb-4">
+            Hear From Our Clients
+          </h2>
+          <p class="text-gray-600 text-base md:text-lg">
+            We take pride in delivering exceptional moving experiences. Read what our past clients have to say about working with Ascension Moving Company.
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {reviews.map((review) => (
+            <ReviewCard review={review} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <TrustSection />
+    <CTASection floating />
+    <MapSection />
+    <Footer />
+  </main>
+</Base>
