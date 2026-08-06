@@ -90,7 +90,7 @@ const services = [
     </div>
 
     <!-- Services Grid -->
-    <div class="services-grid grid gap-6 lg:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {services.map(service => (
         <ServiceCard 
           title={service.title}
@@ -105,8 +105,3 @@ const services = [
   </div>
 </section>
 
-<style>
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  }
-</style>
