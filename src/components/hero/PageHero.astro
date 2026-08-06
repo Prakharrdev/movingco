@@ -42,31 +42,40 @@ const { eyebrow, title, subtitle, image, crumbs, cta } = Astro.props;
       loading="eager"
     />
 
-    <div class="pt-6">
-      {eyebrow && (
-        <p class="text-[var(--color-primary)] font-bold text-sm tracking-[0.15em] uppercase mb-3">{eyebrow}</p>
-      )}
+    <div class="pt-8 md:pt-12 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
+      <div class="max-w-2xl flex-1">
+        {eyebrow && (
+          <p class="text-[var(--color-primary)] font-bold text-sm tracking-[0.15em] uppercase mb-3">{eyebrow}</p>
+        )}
 
-      <h1 class="text-[clamp(1.75rem,7.2vw,2.25rem)] font-extrabold text-[#171717] leading-[1.2] mb-4">
-        {title}
-      </h1>
+        <h1 class="text-[clamp(1.75rem,7.2vw,2.25rem)] font-extrabold text-[#171717] leading-[1.2] mb-4">
+          {title}
+        </h1>
 
-      {subtitle && (
-        <p class="page-hero-subtitle text-[clamp(1.125rem,5.1vw,1.25rem)] text-[#6B7280] leading-[1.5] mb-6">
-          {subtitle}
-        </p>
-      )}
+        {subtitle && (
+          <p class="page-hero-subtitle text-[clamp(1.125rem,5.1vw,1.25rem)] text-[#6B7280] leading-[1.5] mb-6">
+            {subtitle}
+          </p>
+        )}
 
-      {cta && (
-        <a
-          href={cta.href}
-          class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-extrabold text-base px-7 py-4 rounded-[16px] shadow-[0_6px_16px_rgba(46,125,235,0.25)] hover:-translate-y-[2px] hover:shadow-[0_12px_24px_rgba(46,125,235,0.3)] transition-all w-fit"
-        >
-          {cta.label}
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-          </svg>
-        </a>
+        {cta && (
+          <a
+            href={cta.href}
+            class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-extrabold text-base px-7 py-4 rounded-[16px] shadow-[0_6px_16px_rgba(46,125,235,0.25)] hover:-translate-y-[2px] hover:shadow-[0_12px_24px_rgba(46,125,235,0.3)] transition-all w-fit"
+          >
+            {cta.label}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        )}
+      </div>
+
+      <!-- Optional Right Slot for Stats, Trust Badges, or Additional Context -->
+      {Astro.slots.has('right-content') && (
+        <div class="md:min-w-[320px] lg:min-w-[400px] flex-shrink-0">
+          <slot name="right-content" />
+        </div>
       )}
     </div>
   </div>
