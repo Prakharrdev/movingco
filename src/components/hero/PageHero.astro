@@ -12,12 +12,31 @@ interface Props {
   crumbs: Crumb[];
   cta?: { label: string; href: string };
   imageFullWidth?: boolean;
+  centerContent?: boolean;
+  compact?: boolean;
 }
 
-const { eyebrow, title, subtitle, image, crumbs, cta, imageFullWidth = false } = Astro.props;
+const {
+  eyebrow,
+  title,
+  subtitle,
+  image,
+  crumbs,
+  cta,
+  imageFullWidth = false,
+  centerContent = false,
+  compact = false,
+} = Astro.props;
 ---
 
-<section class:list={['page-hero w-full bg-white text-[var(--color-dark-navy)]', { 'page-hero--full-image': imageFullWidth }]}>
+<section class:list={[
+  'page-hero w-full bg-white text-[var(--color-dark-navy)]',
+  {
+    'page-hero--full-image': imageFullWidth,
+    'page-hero--centered': centerContent,
+    'page-hero--compact': compact,
+  },
+]}>
   <div class="site-container">
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="page-hero-breadcrumb flex items-center">
@@ -55,7 +74,7 @@ const { eyebrow, title, subtitle, image, crumbs, cta, imageFullWidth = false } =
   )}
 
   <div class="site-container">
-    <div class="pt-8 md:pt-12 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
+    <div class="page-hero-content pt-8 md:pt-12 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
       <div class="max-w-2xl flex-1">
         {eyebrow && (
           <p class="text-[var(--color-primary)] font-bold text-sm tracking-[0.15em] uppercase mb-3">{eyebrow}</p>
@@ -98,6 +117,22 @@ const { eyebrow, title, subtitle, image, crumbs, cta, imageFullWidth = false } =
   .page-hero {
     padding-block-start: var(--site-header-h);
     padding-block-end: var(--section-space-compact);
+  }
+
+  .page-hero--compact {
+    padding-block-end: clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .page-hero--centered .page-hero-content {
+    justify-content: center;
+  }
+
+  .page-hero--centered .page-hero-content > div:first-child {
+    text-align: center;
+  }
+
+  .page-hero--centered .page-hero-subtitle {
+    margin-inline: auto;
   }
 
   .page-hero-breadcrumb {
