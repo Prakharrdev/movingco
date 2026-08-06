@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Quote Request</title>
+    <style>
+        /* Base Reset */
+        body, table, td, a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .fluid {
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            td[class="mobile-padding"] {
+                padding: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f7f6; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.4; color: #333333;">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f4f7f6; padding: 40px 0;">
+        <tr>
+            <td align="center" style="padding: 0 10px;">
+                
+                <!-- Main Email Container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td align="center" style="padding: 30px 40px; background-color: #071C35; border-bottom: 4px solid #e87516;">
+                            <!-- Note: The src needs to be an absolute URL pointing to your hosted logo -->
+                            <img src="https://yourwebsite.com/images/Logo/logo.png" alt="Company Logo" width="180" style="display: block; border: 0; max-width: 100%; height: auto;" />
+                        </td>
+                    </tr>
+
+                    <!-- Body Content -->
+                    <tr>
+                        <td class="mobile-padding" style="padding: 40px;">
+                            <h1 style="margin: 0 0 20px 0; font-size: 24px; color: #071C35; font-weight: bold;">New Quote Request</h1>
+                            
+                            <p style="margin: 0 0 30px 0; font-size: 16px; color: #555555; line-height: 1.6;">
+                                You have received a new quote request from your website. Here are the details provided by the customer:
+                            </p>
+
+                            <!-- Data Table -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                                <tr>
+                                    <td width="35%" style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #071C35;">Name:</td>
+                                    <td width="65%" style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; color: #555555;">{{firstName}} {{lastName}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #071C35;">Email Address:</td>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; color: #555555;"><a href="mailto:{{email}}" style="color: #e87516; text-decoration: none;">{{email}}</a></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #071C35;">Phone Number:</td>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; color: #555555;">{{phone}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #071C35;">Moving From:</td>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; color: #555555;">{{movingFrom}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #071C35;">Moving To:</td>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; color: #555555;">{{movingTo}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #071C35;">Service Needed:</td>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; color: #555555;">{{serviceNeeded}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #071C35;">Preferred Date:</td>
+                                    <td style="padding: 12px 10px; border-bottom: 1px solid #eeeeee; color: #555555;">{{preferredDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 10px; font-weight: bold; color: #071C35; vertical-align: top;">Additional Details:</td>
+                                    <td style="padding: 12px 10px; color: #555555; line-height: 1.5;">
+                                        <div style="background-color: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eeeeee; margin-top: 5px;">
+                                            {{moveDetails}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 35px;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="mailto:{{email}}" style="display: inline-block; padding: 14px 35px; background-color: #e87516; color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase;">Reply to Customer</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td align="center" style="padding: 25px 40px; background-color: #f8f9fa; border-top: 1px solid #eeeeee;">
+                            <p style="margin: 0; font-size: 13px; color: #888888; line-height: 1.5;">
+                                This email was automatically generated from your website's quote form.<br>
+                                &copy; 2026 Your Moving Company. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Main Email Container -->
+                
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
