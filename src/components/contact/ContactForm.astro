@@ -52,6 +52,7 @@ const { id = 'contactFormDesktop' } = Astro.props;
       class="w-full py-3 bg-[var(--color-primary)] hover:bg-blue-600 text-white font-bold text-[15px] rounded-[6px] uppercase tracking-wide transition-colors">
       SEND MESSAGE
     </button>
+    <p class="contact-form-status hidden text-center text-[13px] font-medium mt-2"></p>
   </form>
 
   <div class="text-center mt-4 text-gray-400 text-[12px] flex items-center justify-center gap-1.5">
@@ -68,21 +69,41 @@ const { id = 'contactFormDesktop' } = Astro.props;
 
 <script>
   document.querySelectorAll('form[id^="contactForm"]').forEach((form) => {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
+      const status = this.querySelector('.contact-form-status');
       if (!btn) return;
       const orig = btn.textContent;
       btn.disabled = true;
       btn.textContent = 'Sending...';
+      status.classList.add('hidden');
 
-      setTimeout(() => {
+      try {
+        const data = Object.fromEntries(new FormData(this).entries());
+        const response = await fetch('/api/send-quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          const body = await response.json().catch(() => ({}));
+          throw new Error(body.error || 'Request failed');
+        }
+
         this.innerHTML =
           '<div class="text-center py-8">' +
           '<h4 class="font-bold text-[22px] text-[var(--color-primary)] mb-2">Thank You!</h4>' +
           "<p class='text-gray-500 text-[15px]'>Your enquiry has been sent. We'll get back to you shortly.</p>" +
           '</div>';
-      }, 700);
+      } catch (error) {
+        btn.disabled = false;
+        btn.textContent = orig;
+        status.textContent = error.message || 'Something went wrong. Please try again.';
+        status.style.color = '#dc2626';
+        status.classList.remove('hidden');
+      }
     });
   });
 </script>
