@@ -137,12 +137,12 @@ const usesLightMobileTopbar = pathname === '/about-us' || pathname === '/testimo
         <a href="/contact-us" class:list={['nav-btn', { active: pathname === '/contact-us' }]}>Contact Us</a>
       </li>
     </ul>
-    <div class="nav-phone">
+  </div>
+  <div class="nav-phone">
     <a href="tel:2313429505" class="nav-phone-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       (231) 342-9505
     </a>
-    </div>
   </div>
 </nav>
 
@@ -398,8 +398,9 @@ const usesLightMobileTopbar = pathname === '/about-us' || pathname === '/testimo
   .main-nav-inner {
     height: 100%;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     align-items: stretch;
+    padding-right: clamp(12rem, 18vw, 16rem);
   }
 
   .main-nav.navbar-scrolled {
@@ -479,7 +480,13 @@ const usesLightMobileTopbar = pathname === '/about-us' || pathname === '/testimo
     text-shadow: 0 0 20px rgba(79, 164, 255, 0.4), 0 0 40px rgba(79, 164, 255, 0.2);
   }
 
-  .nav-phone { display: flex; justify-content: flex-end; }
+  .nav-phone { 
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex; 
+  }
   .nav-phone-link {
     display: flex;
     align-items: center;

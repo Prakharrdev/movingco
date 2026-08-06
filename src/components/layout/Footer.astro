@@ -104,7 +104,7 @@ const hours = [
 
   <div class="copyright-bar">
     <div class="site-container flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
-      <p class="mb-0 text-[15px]">Copyright &copy; 2026 Ascension Moving, LLC | Website by <a href="https://schrader.co/" target="_blank" rel="noopener noreferrer" class="font-semibold hover:text-primary transition-colors">Schrader Web Solutions</a></p>
+      <p class="mb-0 text-[15px]">Copyright &copy; 2026 Ascension Moving, LLC | Website by <a href="https://schrader.co/" target="_blank" rel="noopener noreferrer" class="font-semibold footer-credit-glow">Schrader Web Solutions</a></p>
       <p class="mb-0 text-[15px]">
         <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
         <span class="mx-1">|</span>
@@ -215,6 +215,15 @@ const hours = [
 
   .copyright-bar a {
     color: rgba(255, 255, 255, 0.9);
+  }
+
+  .footer-credit-glow {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  .footer-credit-glow:hover {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
   }
 
   @media (max-width: 39.999rem) {
